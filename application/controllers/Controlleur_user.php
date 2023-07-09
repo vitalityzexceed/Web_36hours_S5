@@ -547,5 +547,76 @@ class Controlleur_user extends CI_Controller {
         redirect('controlleur_user/index');
     }
 
+    public function vers_login_user()
+	{
+        $data['pages'] = "sign-in-client";
+        $data['title'] = "Login client";
+		$this->load->view('form-template', $data);
+    }
+
+    public function vers_inscription_user()
+	{
+        $data['pages'] = "sign-up-client";
+        $data['title'] = "Inscription client";
+		$this->load->view('form-template', $data);
+    }
+
+    public function traitement_inscription_user()
+	{
+        $this->load->model('model_user');
+
+		$nom = $this->input->post('nom');
+		$mail = $this->input->post('mail');
+		$mdp = $this->input->post('pswd');
+
+		if (($nom != null) && ($mail != null) && ($mdp != null))
+		{
+			$this->model_user->inscription($nom, $mail, $mdp);
+			 
+                //$dataliste['listeobjets'] = $this->model_user->getlistemesobjet();
+                $datalien['title'] = "Login client";
+                $datalien['pages'] = "sign-in-client";
+
+		        $this->load->view('form-template', $datalien);
+			
+		}
+		elseif ((!isset($nom))||(!isset($mail))||(!isset($mdp))) 
+		{
+			echo "Misy valeur null";
+		}
+    }
+
+    public function traitement_connexion_user()
+	{	
+		$this->load->model('model_generalise');
+
+		$nom = $this->input->post('nom');
+		$mdp = $this->input->post('pswd');
+
+
+		if (($nom != null) && ($mdp != null))
+		{
+            $this->session->set_userdata('id_utilisateur', ''.$this->model_user->verify_Login($nom, $mdp));
+            $iduseractuel = $this->session->idutilisateur;
+            // $dataliste['listeobjets'] = $this->model_user->getlistemesobjet($iduseractuel);
+            // $dataliste['listeobjetsimageunique'] = $this->model_user->getlistemesobjetunique($iduseractuel);
+
+            $dataliste['title'] = "Accueil client";
+            // $dataliste['title'] = $iduseractuel;
+
+            $dataliste['pages'] = "accueil-client";
+
+            $this->load->view('pages-template-client', $dataliste);
+		}
+		elseif ((!isset($nom))||(!isset($mail))||(!isset($mdp))) 
+		{
+			echo "Misy valeur null";
+		}
+			
+	}
+
+    
+
+
 }
 ?>

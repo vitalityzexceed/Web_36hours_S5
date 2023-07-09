@@ -1,32 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Takalo</title>
-    <link rel="shortcut icon" href="<?php echo site_url('assets/Takalo-logo/vector/default.svg'); ?>" type="image/x-icon">
-    <link rel="stylesheet" href="<?php echo site_url('assets/bootstrap/css/bootstrap.min.css'); ?>">
-    <link rel="stylesheet" href="<?php echo site_url('assets/css/font.css'); ?> ">
-    <link rel="stylesheet" href="<?php echo site_url('assets/css/color.css'); ?> ">
-    <link rel="stylesheet" href="<?php echo site_url('assets/css/page.css'); ?> ">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>SI-S5</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+
+  <!-- Vendor CSS Files -->
+  <link href="<?= base_url('assets/vendor/bootstrap/css/bootstrap.min.css') ?>" rel="stylesheet">
+  <link href="<?= base_url('assets/vendor/bootstrap-icons/bootstrap-icons.css') ?>" rel="stylesheet">
+  <link href="<?= base_url('assets/vendor/boxicons/css/boxicons.min.css') ?>" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="<?= base_url('assets/css/style.css') ?>" rel="stylesheet">
 </head>
+
 <body>
-    <nav class="navbar navbar-light navbar-expand-md py-3">
-        <div class="container">
-            <a class="navbar-brand d-flex align-items-center" style="width: 10rem;" href="#">
-                <img src="<?php echo site_url('assets/Takalo-logo/default.png'); ?>" alt="Picture not found" width="40%">
-            </a>
-            <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-3">
-                <span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navcol-3">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item"><a class="nav-link text-uppercase" href="<?= site_url("controlleur_user/vers_gestion_categorie");?>">Home</a></li>
-                    <li class="nav-item"><a class="nav-link text-uppercase" href="<?= site_url("controlleur_user/vers_stat_nb_echange");?>">Suivi d'echange</a></li>
-                    <li class="nav-item"><a class="nav-link text-uppercase" href="<?= site_url("controlleur_user/vers_stat_nb_utilisateur");?>">Suivi d'utilisateur</a></li>
-                </ul>
-                <a class="btn ms-md-2" id="discard" role="button" href="<?= site_url("controlleur_user/deconnexion");?>">Déconnexion</a>
-            </div>
-        </div>
+  <!-- Header -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="<?= site_url('home') ?>" class="logo d-flex align-items-center">
+        <img src="<?= base_url('assets/img/logo.png') ?>" alt="">
+        <span class="d-none d-lg-block">NiceAdmin</span>
+      </a>
+      <i class="bi bi-list toggle-sidebar-btn"></i>
+    </div>
+
+    <div class="search-bar">
+      <form class="search-form d-flex align-items-center" method="POST" action="#">
+        <input type="text" name="query" placeholder="Search" title="Enter search keyword">
+        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+      </form>
+    </div>
+
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center">
+        <li class="nav-item d-block d-lg-none">
+          <a class="nav-link nav-icon search-bar-toggle " href="#">
+            <i class="bi bi-search"></i>
+          </a>
+        </li>
+
+        <li class="nav-item dropdown pe-3">
+          <a class="nav-link nav-profile d-flex align-items-center pe-0 show" href="#" data-bs-toggle="dropdown"
+            aria-expanded="true">
+            <img src="<?= base_url('assets/img/profile-img.jpg') ?>" alt="Profile" class="rounded-circle">
+            <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
+          </a>
+        </li>
+      </ul>
     </nav>
+  </header>
+  <!-- End Header -->
