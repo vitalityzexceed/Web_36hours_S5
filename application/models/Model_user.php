@@ -138,9 +138,22 @@ class Model_user extends CI_Model
         return round( count($all_entrainement)/$affiche_page );
     }
 
-    public function getEntrainement_jour_pagine($all_entrainement, $numero_page) {
-        $nb_pages = $this->getNb_page($all_entrainement, 5);
-        
+    public function getEntrainement_jour_pagine($tableau, $page) {
+        // $nb_pages = $this->getNb_page($all_entrainement, 5);
+
+        $elementsParPage = 5; // Nombre fixe d'éléments par page
+        $totalElements = count($tableau);
+        $totalPages = ceil($totalElements / $elementsParPage);
+
+        if ($page < 1 || $page > $totalPages) {
+            return array(); // Retourne un tableau vide si le numéro de page est invalide
+        }
+
+        $indiceDebut = ($page - 1) * $elementsParPage;
+        $indiceFin = $indiceDebut + $elementsParPage - 1;
+
+        return array_slice($tableau, $indiceDebut, $elementsParPage);
+
     }
 
 
