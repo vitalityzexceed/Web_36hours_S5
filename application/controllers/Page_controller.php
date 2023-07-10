@@ -22,6 +22,7 @@ class Page_controller extends CI_Controller {
 	function __construct(){
         parent::__construct();
         $this->load->helper('url'); 
+		$this->load->library('pdf');
         
     }
 
@@ -59,7 +60,31 @@ class Page_controller extends CI_Controller {
 		}
 		$prix_total = $all_entrainement["prix_total"];
 		echo $prix_total; 
+
+		// je voudrais avoir une affichage comme suit
+		// jour 1
+		// regime  | activite | repetitions | seances
+		// ...
+		// jour 2
+		// regime  | activite | repetitions | seances
+		// ...
+
+
 		
+    }
+
+	function PDF_entrainement() {
+		$this->load->model('model_user');
+       
+        // Créer une nouvelle instance de la classe Pdf
+        $pdf = new PDF();
+        $pdf->title = "Entrainement";
+        $all_entrainement= $this->model_user->getEntrainement_jour(4, 1, 10);
+		$results = $all_entrainement["all_proposition"];
+		$prix_total = $all_entrainement["prix_total"];
+        $pdf->AddPage();
+        $pdf->CreatePDFTableEntrainement([28, 33, 30, 30, 32, 32], ["Activite", "Repetitions", "Seances"], $all_entrainement, [4, 5], [$prix_total]);
+        $pdf->Output();
     }
 	
 
