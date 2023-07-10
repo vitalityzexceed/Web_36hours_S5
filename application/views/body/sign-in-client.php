@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Pages / Login - NiceAdmin Bootstrap Template</title>
+  <title>Login Client</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -33,7 +33,7 @@
               <div class="d-flex justify-content-center py-4">
                 <a href="index.html" class="logo d-flex align-items-center w-auto">
                   <img src="<?php echo base_url('assets/img/logo.png'); ?>" alt="">
-                  <span class="d-none d-lg-block">NiceAdmin</span>
+                  <span class="d-none d-lg-block">KOTRANA</span>
                 </a>
               </div><!-- End Logo -->
 
@@ -42,38 +42,31 @@
                 <div class="card-body">
 
                   <div class="pt-4 pb-2">
-                    <h5 class="card-title text-center pb-0 fs-4">Login to Your Account</h5>
-                    <p class="text-center small">Enter your username & password to login</p>
+                    <h5 class="card-title text-center pb-0 fs-4">Login</h5>
+                    <p class="text-center small">Entrer votre nom utilisateur & mot de passe</p>
                   </div>
 
                   <form action="<?php echo site_url('controlleur_user/traitement_connexion_client'); ?>" class="row g-3 needs-validation" novalidate method="post">
 
                     <div class="col-12">
-                      <label for="yourUsername" class="form-label">Username</label>
+                      <label for="yourUsername" class="form-label">Nom utilisateur</label>
                       <div class="input-group has-validation">
-                        <span class="input-group-text" id="inputGroupPrepend">@</span>
                         <input type="text" name="nom" class="form-control" id="yourUsername" value="jean" required>
-                        <div class="invalid-feedback">Please enter your username.</div>
+                        <div class="invalid-feedback">Veuillez entrer votre nom utilisateur.</div>
                       </div>
                     </div>
 
                     <div class="col-12">
-                      <label for="yourPassword" class="form-label">Password</label>
+                      <label for="yourPassword" class="form-label">mot de passe</label>
                       <input type="password" name="pswd" class="form-control" id="yourPassword" value="jean123" required>
-                      <div class="invalid-feedback">Please enter your password!</div>
-                    </div>
-
-                    <div class="col-12">
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="remember" value="true" id="rememberMe">
-                        <label class="form-check-label" for="rememberMe">Remember me</label>
-                      </div>
+                      <div class="invalid-feedback">Veuillez entrer votre mot de passe!</div>
                     </div>
                     <div class="col-12">
                       <button class="btn btn-primary w-100" type="submit">Login</button>
                     </div>
+              
                     <div class="col-12">
-                      <p class="small mb-0">Don't have an account? <a href="<?php echo site_url('controlleur_user/vers_inscription_client'); ?>">Create an account</a></p>
+                      <p class="small mb-0">Pas de Compte? <a href="<?php echo site_url('controlleur_user/vers_inscription_client'); ?>">Creer votre Compte</a></p>
                     </div>
                   </form>
 

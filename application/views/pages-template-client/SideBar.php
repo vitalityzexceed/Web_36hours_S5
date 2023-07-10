@@ -5,16 +5,16 @@
     <li class="nav-heading">Pages</li>
 
     <li class="nav-item">
-      <a class="nav-link collapsed" href="<?php echo site_url('profile'); ?>">
-        <i class="bi bi-person"></i>
-        <span>Profile</span>
+      
+      <a class="nav-link collapsed" href="<?= site_url("Controlleur_client/vers_Planning");?>">
+      <i class="bi bi-grid"></i>
+         <span>Planning</span>
       </a>
     </li>
-
     <li class="nav-item">
-      <a class="nav-link collapsed" href="<?php echo site_url('login'); ?>">
+      <a class="nav-link collapsed" href="<?php echo site_url('controlleur_user/index'); ?>">
         <i class="bi bi-box-arrow-in-right"></i>
-        <span>Login</span>
+        <span>Logout</span>
       </a>
     </li>
 

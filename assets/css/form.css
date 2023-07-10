@@ -2,7 +2,10 @@
     background-color: var(--submit);
     color: var(--white);
 }
-
+bs-icon.bs-icon-primary {
+    color: var(--bs-white);
+    background: #107be6;
+}
 .btn[type="submit"]:hover {
     background-color: var(--submit-hover);
     color: var(--white);
@@ -39,7 +42,8 @@
 }
 .bs-icon.bs-icon-primary {
     color: var(--bs-white);
-    background: var(--primary-color);
+    background: #107be6;
+    ;
 }
 
 .bs-icon-xs {
