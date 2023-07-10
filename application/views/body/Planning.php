@@ -7,7 +7,7 @@
     <table class="table table-bordered  table-striped">
       <thead>
         <tr>
-           <th scope="col" id="header-cell"></th>
+            <th scope="col" id="header-cell"></th>
             <th scope="col" id="header-cell">Jour 1</th>
             <th scope="col" id="header-cell">Jour 2</th>
             <th scope="col" id="header-cell">Jour 3</th>

@@ -52,8 +52,6 @@ class Controlleur_regime extends CI_Controller {
     //     $data['title'] = "Inscription client";
 	// 	$this->load->view('form-template', $data);
     // }
-
-    public function 
         
     public function deconnexion()
     {

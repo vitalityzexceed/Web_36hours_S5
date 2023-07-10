@@ -4,8 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>kotrana</title>
-    <link rel="shortcut icon" href="<?php echo site_url('assets/kotrana-logo/vector/default.svg'); ?>" type="image/x-icon">
-    <link rel="stylesheet" href="<?php echo site_url('assets/bootstrap/css/bootstrap.min.css'); ?>">
+  <!-- Favicons -->
+  <link href=" <?= base_url('assets/img/logo.png') ?>" rel="icon">
+
+  <link href=" <?= base_url('assets/img/logo.png') ?>" rel="apple-touch-icon">
+     <link rel="stylesheet" href="<?php echo site_url('assets/bootstrap/css/bootstrap.min.css'); ?>">
     <link rel="stylesheet" href="<?php echo site_url('assets/css/font.css'); ?> ">
     <link rel="stylesheet" href="<?php echo site_url('assets/css/color.css'); ?> ">
     <link rel="stylesheet" href="<?php echo site_url('assets/css/form.css'); ?> ">
