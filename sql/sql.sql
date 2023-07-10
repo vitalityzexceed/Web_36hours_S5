@@ -9,14 +9,15 @@ create table IF NOT EXISTS utilisateur
 	motdepasse varchar(80) NOT NULL,
 	isadmin int,
     dateinscription date,
+	dateNaissance date,
 	PRIMARY KEY (id_utilisateur)
 ) ENGINE=InnoDB DEFAULT CHARSET="utf8";
 
-insert into utilisateur (nom, mail, motdepasse, isadmin, dateinscription) values ('admin', 'admin@gmail.com', (select sha1('admin')), 1, '2002-11-23');
-insert into utilisateur values (NULL, 'jean', 'jean@gmail.com', (select sha1('jean')), 0, now());
-insert into utilisateur (nom, mail, motdepasse, isadmin, dateinscription) values ('jacques', 'jacques@gmail.com', (select sha1('jacques')), 0, '2002-11-23');
-insert into utilisateur (nom, mail, motdepasse, isadmin, dateinscription) values ('jeanne', 'jeanne@gmail.com', (select sha1('jeanne')), 0, '2002-11-23');
-insert into utilisateur (nom, mail, motdepasse, isadmin, dateinscription) values ('soa', 'soa@gmail.com', (select sha1('soa')), 0, '2002-11-23');
+insert into utilisateur (nom, mail, motdepasse, isadmin, dateNaissance ,dateinscription) values ('admin', 'admin@gmail.com', (select sha1('admin')), 1, '2002-11-23', now());
+insert into utilisateur values (NULL, 'jean', 'jean@gmail.com', (select sha1('jean')), 0, '2002-11-23', now());
+insert into utilisateur (nom, mail, motdepasse, isadmin, dateinscription) values ('jacques', 'jacques@gmail.com', (select sha1('jacques')), 0, '2002-11-23', now());
+insert into utilisateur (nom, mail, motdepasse, isadmin, dateinscription) values ('jeanne', 'jeanne@gmail.com', (select sha1('jeanne')), 0, '2002-11-23', now());
+insert into utilisateur (nom, mail, motdepasse, isadmin, dateinscription) values ('soa', 'soa@gmail.com', (select sha1('soa')), 0, '2002-11-23', now());
 
 CREATE table genre(
 	id_genre int PRIMARY KEY,
@@ -83,6 +84,18 @@ CREATE table code_status(
 	FOREIGN key (id_utilisateur) REFERENCES utilisateur(id_utilisateur)
 )ENGINE=InnoDB DEFAULT CHARSET="utf8";
 
+
+CREATE table compte_utilisateur (
+	id_utilisateur int,
+	montant_utilisateur double precision,
+	FOREIGN KEY (id_utilisateur) REFERENCES utilisateur(id_utilisateur)
+)ENGINE=InnoDB DEFAULT CHARSET="utf8";
+
+insert into compte_utilisateur (id_utilisateur,montant_utilisateur) values 
+	(2, 0),
+	(3, 0),
+	(4, 0),
+	(5, 0);
 
 CREATE table Element(
 	id_element int NOT NULL AUTO_INCREMENT,
