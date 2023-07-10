@@ -9,6 +9,10 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
+  <!-- Favicons -->
+  <link href=" <?= base_url('assets/img/logo.png') ?>" rel="icon">
+
+  <link href=" <?= base_url('assets/img/logo.png') ?>" rel="apple-touch-icon">
   <!-- Vendor CSS Files -->
   <link href="<?php echo base_url('assets/vendor/bootstrap/css/bootstrap.min.css'); ?>" rel="stylesheet">
   <link href="<?php echo base_url('assets/vendor/bootstrap-icons/bootstrap-icons.css'); ?>" rel="stylesheet">

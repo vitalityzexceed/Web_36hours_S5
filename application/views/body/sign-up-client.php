@@ -9,6 +9,10 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
+  <!-- Favicons -->
+  <link href=" <?= base_url('assets/img/logo.png') ?>" rel="icon">
+
+  <link href=" <?= base_url('assets/img/logo.png') ?>" rel="apple-touch-icon">
   
   <!-- Vendor CSS Files -->
   <link href="<?php echo base_url('assets/vendor/bootstrap/css/bootstrap.min.css'); ?>" rel="stylesheet">
@@ -61,7 +65,7 @@
 
                     <div class="col-12">
                       <label for="yourDateOfBirth" class="form-label">Date de naissance</label>
-                      <input type="date" name="dtn" class="form-control" id="yourDateOfBirth" required>
+                      <input type="date" name="dtn" class="form-control" id="yourDateOfBirth" value="2003-07-10" required>
                       <div class="invalid-feedback">Veuillez entrer votre date de naissance!</div>
                     </div>
 
