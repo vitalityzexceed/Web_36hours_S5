@@ -252,30 +252,30 @@ insert into parametre_entrainement (id_parametre_entrainement, poids1, poids2, t
 	(NULL, 30, 50, 171, 270, 1, 1, 3, 3, 0.9),
 	(NULL, 30, 50, 171, 270, 2, 1, 2, 4, 1),
 	-- personne male 51 - 100 kg de 130 a 270 cm
-	(NULL, 51, 101, 130, 170, 1, 1, 3, 5, 2),
-	(NULL, 51, 101, 130, 170, 2, 1, 2, 1, 1),
-	(NULL, 51, 101, 171, 270, 1, 1, 2, 5, 2),
-	(NULL, 51, 101, 171, 270, 2, 1, 1, 4, 1),
+	(NULL, 51, 101, 130, 170, 1, 1, 3, 5, 0.5),
+	(NULL, 51, 101, 130, 170, 2, 1, 2, 1, 0.6),
+	(NULL, 51, 101, 171, 270, 1, 1, 2, 5, 0.4),
+	(NULL, 51, 101, 171, 270, 2, 1, 1, 4, 0.9),
 	-- personne male de 100 kg et plus
-	(NULL, 101, 300, 130, 280, 2, 1, 3, 1, 5),
+	(NULL, 101, 300, 130, 280, 2, 1, 3, 1, 1.5),
 	-- personne femelle 30 - 50 kg de 130 a 270 cm
-	(NULL, 30, 50, 130, 170, 1, 2, 4, 1, 0.8),
-	(NULL, 30, 50, 130, 170, 2, 2, 5, 2, 0.8),
-	(NULL, 30, 50, 171, 270, 1, 2, 6, 3, 0.9),
+	(NULL, 30, 50, 130, 170, 1, 2, 4, 1, 0.5),
+	(NULL, 30, 50, 130, 170, 2, 2, 5, 2, 0.6),
+	(NULL, 30, 50, 171, 270, 1, 2, 6, 3, 0.7),
 	(NULL, 30, 50, 171, 270, 2, 2, 5, 4, 1),
 	-- personne femelle 51 - 100 kg de 130 a 270 cm
-	(NULL, 51, 101, 130, 170, 1, 2, 6, 5, 2),
-	(NULL, 51, 101, 130, 170, 2, 2, 5, 1, 1),
-	(NULL, 51, 101, 171, 270, 1, 2, 5, 5, 2),
-	(NULL, 51, 101, 171, 270, 2, 2, 4, 4, 1),
+	(NULL, 51, 101, 130, 170, 1, 2, 6, 5, 0.45),
+	(NULL, 51, 101, 130, 170, 2, 2, 5, 1, 0.4),
+	(NULL, 51, 101, 171, 270, 1, 2, 5, 5, 0.8),
+	(NULL, 51, 101, 171, 270, 2, 2, 4, 4, 0.6),
 	-- personne femelle de 100 kg et plus
-	(NULL, 101, 300, 130, 280, 2, 2, 6, 1, 5);
+	(NULL, 101, 300, 130, 280, 2, 2, 6, 1, 2);
 	
 
 -- vues
 CREATE or replace view v_parametre_utilisateur as 
 	select utilisateur.id_utilisateur, 
-		utilisateur.nom, genre.genre, 
+		utilisateur.nom,  genre.id_genre,genre.genre, 
 		parametre_utilisateur.poids, 
 		parametre_utilisateur.taille
 	from utilisateur natural join genre natural join parametre_utilisateur;
@@ -307,6 +307,15 @@ CREATE or replace view v_entrainement as
 	natural join objectif
 	natural join genre
 	natural join type_entrainement;
+
+-- select 
+-- * 
+-- from v_entrainement 
+-- where id_genre = 1 and 
+-- id_objectif = 1 
+-- and (100 BETWEEN poids1 and poids2) 
+-- and (160 BETWEEN taille1 and taille2) 
+-- order by estimation DESC;
 	
 
 
