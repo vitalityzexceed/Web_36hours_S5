@@ -74,11 +74,15 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array(
-	'dsn'	=> 'mysql:host=localhost; dbname=web_s3_takalo; port=3306 ; charset=utf8;',
+	'dsn'	=> '',
+	// 'hostname' => 'mysql-projetsystemeinfo.alwaysdata.net',
 	'hostname' => 'localhost',
+	// 'username' => '319769',
 	'username' => 'root',
+	// 'password' => 'Regime 1234!',
 	'password' => '',
-	'database' => 'compta',
+	// 'database' => 'projetsystemeinfo_mysql',
+	'database' => 'gasy_si',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
