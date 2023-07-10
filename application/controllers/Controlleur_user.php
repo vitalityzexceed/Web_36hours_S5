@@ -88,6 +88,10 @@ class Controlleur_user extends CI_Controller {
 
 		if (($nom != null) && ($mdp != null))
 		{
+            if ($this->model_user->verify_Login($nom, $mdp)=='not found') 
+            {
+                redirect('Controlleur_user/vers_login_client');
+            }
             $this->session->set_userdata('idutilisateur', ''.$this->model_user->verify_Login($nom, $mdp));
         
             $dataliste['title'] = "Liste des objets du client";
