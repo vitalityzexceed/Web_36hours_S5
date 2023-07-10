@@ -152,53 +152,66 @@ CREATE TABLE Type_Entrainement(
 	PRIMARY key(id_type_entrainement)
 )ENGINE=InnoDB DEFAULT CHARSET="utf8";
 
-insert INTO type_entrainement VALUES(NULL, 'Facile');
-insert INTO type_entrainement VALUES(NULL, 'Modere');
-insert INTO type_entrainement VALUES(NULL, 'Extreme');
-insert INTO type_entrainement VALUES(NULL, 'Special Surpoids');
-insert INTO type_entrainement VALUES(NULL, 'Special Maigre');
+insert INTO type_entrainement VALUES(NULL, 'Facile Homme');
+insert INTO type_entrainement VALUES(NULL, 'Modere Homme');
+insert INTO type_entrainement VALUES(NULL, 'Extreme Homme');
+insert INTO type_entrainement VALUES(NULL, 'Facile Femme');
+insert INTO type_entrainement VALUES(NULL, 'Modere Femme');
+insert INTO type_entrainement VALUES(NULL, 'Extreme Femme');
+
 
 
 CREATE TABLE Entrainement_activite (
 	id_type_entrainement int,
 	id_activite_sportif int,
+	id_genre int,
 	nb_repetition int,
 	nb_seances int,
 	FOREIGN key(id_type_entrainement) REFERENCES type_entrainement(id_type_entrainement),
-	FOREIGN key(id_activite_sportif) REFERENCES activite_sportif(id_activite_sportif)
+	FOREIGN key(id_activite_sportif) REFERENCES activite_sportif(id_activite_sportif),
+	FOREIGN key(id_genre) REFERENCES genre(id_genre)
 )ENGINE=InnoDB DEFAULT CHARSET="utf8";
 
-insert into Entrainement_activite (id_type_entrainement, id_activite_sportif, nb_repetition, nb_seances) VALUES
+insert into Entrainement_activite (id_type_entrainement, id_activite_sportif, id_genre, nb_repetition, nb_seances) VALUES
+	-- homme
 	-- facile 2 seances de 8 reps
-	(1, 1, 8, 2),
-	(1, 2, 8, 2),
-	(1, 3, 8, 2),
-	(1, 4, 8, 2),
-	(1, 5, 8, 2),
+	(1, 1, 1, 10, 2),
+	(1, 2, 1, 10, 2),
+	(1, 3, 1, 10, 2),
+	(1, 4, 1, 10, 2),
+	(1, 5, 1, 10, 2),
 	-- moyen 3 seances de 10 reps
-	(2, 1, 10, 3),
-	(2, 2, 10, 3),
-	(2, 3, 10, 3),
-	(2, 4, 10, 3),
-	(2, 5, 10, 3),
+	(2, 1, 1, 15, 3),
+	(2, 2, 1, 15, 3),
+	(2, 3, 1, 15, 3),
+	(2, 4, 1, 15, 3),
+	(2, 5, 1, 15, 3),
 	-- extreme 4 seances de 12 reps
-	(3, 1, 12, 4),
-	(3, 2, 12, 4),
-	(3, 3, 12, 4),
-	(3, 4, 12, 4),
-	(3, 5, 12, 4),
-	-- special surpoids 3 seances de 20 reps
-	(4, 1, 20, 3),
-	(4, 2, 20, 3),
-	(4, 3, 20, 3),
-	(4, 4, 20, 3),
-	(4, 5, 20, 3),
-	-- special mince 3 seances de 12 reps
-	(4, 1, 12, 3),
-	(4, 2, 12, 3),
-	(4, 3, 12, 3),
-	(4, 4, 12, 3),
-	(4, 5, 12, 3);
+	(3, 1, 1, 20, 4),
+	(3, 2, 1, 20, 4),
+	(3, 3, 1, 20, 4),
+	(3, 4, 1, 20, 4),
+	(3, 5, 1, 20, 4),
+	-- femme
+	-- facile 2 seances de 8 reps
+	(4, 1, 2, 8, 2),
+	(4, 2, 2, 8, 2),
+	(4, 3, 2, 8, 2),
+	(4, 4, 2, 8, 2),
+	(4, 5, 2, 8, 2),
+	-- moyen 3 seances de 10 reps
+	(5, 1, 2, 12, 3),
+	(5, 2, 2, 12, 3),
+	(5, 3, 2, 12, 3),
+	(5, 4, 2, 12, 3),
+	(5, 5, 2, 12, 3),
+	-- extreme 4 seances de 12 reps
+	(6, 1, 2, 15, 4),
+	(6, 2, 2, 15, 4),
+	(6, 3, 2, 15, 4),
+	(6, 4, 2, 15, 4),
+	(6, 5, 2, 15, 4);
+	
 
 
 CREATE table parametre_entrainement(
@@ -208,25 +221,80 @@ CREATE table parametre_entrainement(
 	taille1 double precision,
 	taille2 double precision,
 	id_objectif int,
+	id_genre int,
 	id_type_entrainement int,
 	id_regime int,
 	estimation double precision,
 	FOREIGN key (id_objectif) REFERENCES objectif(id_objectif),
+	FOREIGN key (id_genre) REFERENCES genre(id_genre),
 	FOREIGN key (id_type_entrainement) REFERENCES type_entrainement(id_type_entrainement),
 	FOREIGN key (id_regime) REFERENCES Regime(id_regime),
 	PRIMARY key(id_parametre_entrainement)	
 )ENGINE=InnoDB DEFAULT CHARSET="utf8";
 
-insert into parametre_entrainement (id_parametre_entrainement, poids1, poids2, taille1, taille2, id_objectif, id_type_entrainement, id_regime, estimation) values
-	(NULL, 30, 50, 150, 170, 1, 1, 1, 0.8),
-	(NULL, 30, 50, 150, 170, 2, 3, 2, 0.7),
-	(NULL, 30, 50, 171, 280, 1, 1, 5, 0.5),
-	(NULL, 30, 50, 171, 280, 2, 2, 4, 0.7),
-	(NULL, 51, 100, 150, 170, 1, 4, 3, 0.8),
-	(NULL, 51, 100, 150, 170, 1, 3, 4, 1.2),
-	(NULL, 51, 100, 171, 280, 1, 5, 5, 1.2),
-	(NULL, 51, 100, 170, 280, 2, 2, 4, 2.2),
-	(NULL, 100, 400, 150, 170, 2, 4, 1, 4),
-	(NULL, 100, 400, 171, 280, 2, 4, 1, 4);
+insert into parametre_entrainement (id_parametre_entrainement, poids1, poids2, taille1, taille2, id_objectif, id_genre ,id_type_entrainement, id_regime, estimation) values
+	-- personne male 30 - 50 kg de 130 a 270 cm
+	(NULL, 30, 50, 130, 170, 1, 1, 1, 1, 0.8),
+	(NULL, 30, 50, 130, 170, 2, 1, 2, 2, 0.8),
+	(NULL, 30, 50, 171, 270, 1, 1, 3, 3, 0.9),
+	(NULL, 30, 50, 171, 270, 2, 1, 2, 4, 1),
+	-- personne male 51 - 100 kg de 130 a 270 cm
+	(NULL, 51, 101, 130, 170, 1, 1, 3, 5, 2),
+	(NULL, 51, 101, 130, 170, 2, 1, 2, 1, 1),
+	(NULL, 51, 101, 171, 270, 1, 1, 2, 5, 2),
+	(NULL, 51, 101, 171, 270, 2, 1, 1, 4, 1),
+	-- personne male de 100 kg et plus
+	(NULL, 101, 300, 130, 280, 2, 1, 3, 1, 5),
+	-- personne femelle 30 - 50 kg de 130 a 270 cm
+	(NULL, 30, 50, 130, 170, 1, 2, 4, 1, 0.8),
+	(NULL, 30, 50, 130, 170, 2, 2, 5, 2, 0.8),
+	(NULL, 30, 50, 171, 270, 1, 2, 6, 3, 0.9),
+	(NULL, 30, 50, 171, 270, 2, 2, 5, 4, 1),
+	-- personne femelle 51 - 100 kg de 130 a 270 cm
+	(NULL, 51, 101, 130, 170, 1, 2, 6, 5, 2),
+	(NULL, 51, 101, 130, 170, 2, 2, 5, 1, 1),
+	(NULL, 51, 101, 171, 270, 1, 2, 5, 5, 2),
+	(NULL, 51, 101, 171, 270, 2, 2, 4, 4, 1),
+	-- personne femelle de 100 kg et plus
+	(NULL, 101, 300, 130, 280, 2, 2, 6, 1, 5);
+	
+
+-- vues
+CREATE or replace view v_parametre_utilisateur as 
+	select utilisateur.id_utilisateur, 
+		utilisateur.nom, genre.genre, 
+		parametre_utilisateur.poids, 
+		parametre_utilisateur.taille
+	from utilisateur natural join genre natural join parametre_utilisateur;
+
+CREATE or replace view v_regime as 
+	select *
+	from regime_element natural join regime natural join element;
+
+CREATE or replace view v_prix_regime as 
+	select id_regime, nom_regime, sum(prix_element) as prix
+	from v_regime group by id_regime,nom_regime;
+
+
+CREATE or replace view v_type_entrainement as
+	select 
+	id_activite_sportif, 
+	id_type_entrainement, 
+	type_entrainement, 
+	nom_activite ,
+	nb_repetition, 
+	nb_seances  
+	from Entrainement_activite 
+	natural join type_entrainement  
+	natural join activite_sportif order by id_type_entrainement;
+
+CREATE or replace view v_entrainement as 
+	select *
+	from parametre_entrainement 
+	natural join objectif
+	natural join genre
+	natural join type_entrainement;
+	
+
 
 
