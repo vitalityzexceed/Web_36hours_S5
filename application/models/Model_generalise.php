@@ -17,6 +17,18 @@ class Model_generalise extends CI_Model
     return $tab;
     }
 
+    public function find_by_request($sql){
+        $tab = array();
+        $request = $sql;
+        // echo $sql."</br>";
+        // $request = sprintf($request,$nom_table);
+        $query = $this->db->query($request);
+        foreach ($query->result_array() as $row) {
+            array_push($tab, $row);
+        }
+    return $tab;
+    }
+
     
     public function find_by_id($nom_table,$id){
         $tab = array();

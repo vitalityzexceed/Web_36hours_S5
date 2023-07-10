@@ -11,8 +11,7 @@
   <!-- Favicons -->
   <link href=" <?= base_url('assets/img/logo.png') ?>" rel="icon">
 
-<link href=" <?= base_url('assets/img/logo.png') ?>" rel="apple-touch-icon">
-
+  <link href=" <?= base_url('assets/img/logo.png') ?>" rel="apple-touch-icon">
   <!-- Vendor CSS Files -->
   <link href="<?= base_url('assets/vendor/bootstrap/css/bootstrap.min.css') ?>" rel="stylesheet">
   <link href="<?= base_url('assets/vendor/bootstrap-icons/bootstrap-icons.css') ?>" rel="stylesheet">
@@ -45,6 +44,14 @@
         <li class="nav-item d-block d-lg-none">
           <a class="nav-link nav-icon search-bar-toggle " href="#">
             <i class="bi bi-search"></i>
+          </a>
+        </li>
+
+
+        <li class="nav-item dropdown pe-3">
+          <a class="nav-link nav-profile d-flex align-items-center pe-0 show" href="<?php echo site_url('Controlleur_client/vers_PorteFeuille'); ?>" aria-expanded="true">
+            <img src="<?= base_url('assets/img/portefeuille.jpg') ?>" alt="Profile" class="rounded-circle">
+            <span class="d-none d-md-block ">Voir Portefeuille</span>
           </a>
         </li>
       </ul>

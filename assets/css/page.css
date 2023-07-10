@@ -22,6 +22,10 @@
     color: var(--primary-color);
 }
 
+.header-cell {
+    background-color: #1f496e;
+    color: white;
+    }
 a {
     transition: all 0.5s ease-out;
 }
