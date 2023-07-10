@@ -9,7 +9,9 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
+  <link href=" <?= base_url('assets/img/logo.png') ?>" rel="icon">
+
+<link href=" <?= base_url('assets/img/logo.png') ?>" rel="apple-touch-icon">
 
   <!-- Vendor CSS Files -->
   <link href="<?= base_url('assets/vendor/bootstrap/css/bootstrap.min.css') ?>" rel="stylesheet">

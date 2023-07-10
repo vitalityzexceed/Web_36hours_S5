@@ -2,19 +2,7 @@
 <div class="col-xxl-4 col-md-6">
               <div class="card info-card revenue-card">
 
-                <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
-                    </li>
-
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
-                  </ul>
-                </div>
-
+                
                 <div class="card-body">
                   <h5 class="card-title">Revenue <span>| This Month</span></h5>
 
@@ -32,4 +20,29 @@
 
               </div>
             </div>
+            
+<!-- Résultat Planning -->
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Credit Achats</h5>
+    <!-- Tableau avec bordure -->
+    <table class="table table-bordered  table-striped">
+      <thead>
+        <tr>
+           <th scope="col" id="header-cell">element 1</th>
+           <th scope="col" id="header-cell">element 2</th>
+           <th scope="col" id="header-cell">element 3</th>
+        </tr>
+        </thead>
+      <tbody>
+        <tr>
+           <td>ElementA </td>
+          <td>ElementB</td>
+          <td><div class="btn btn-info"><i class="bi bi-plus-circle"></i>&nbsp;&nbsp;Crediter</div>
+            </td>    
+          </tr>
+</div>
+        </tbody>
+    </table>
+  </div>
 </main>
