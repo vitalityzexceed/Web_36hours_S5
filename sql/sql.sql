@@ -105,11 +105,13 @@ CREATE table Element(
 )ENGINE=InnoDB DEFAULT CHARSET="utf8";
 
 insert into element (id_element, nom_element, prix_element) values
-	(NULL, 'Viande Blanche', 10000),
-	(NULL, 'Viande Rouge', 15000),
-	(NULL, 'Banane', 2000 ),
-	(NULL, 'Pomme de terre', 7500),
-	(NULL, 'Legume Varie', 8500);
+	(NULL, 'Viande Blanche', 1000),
+	(NULL, 'Viande Rouge', 1500),
+	(NULL, 'Banane', 200 ),
+	(NULL, 'Pomme de terre', 750),
+	(NULL, 'Legume Varie', 850);
+
+
 
 
 CREATE table regime (
@@ -272,6 +274,13 @@ insert into parametre_entrainement (id_parametre_entrainement, poids1, poids2, t
 	(NULL, 101, 300, 130, 280, 2, 2, 6, 1, 2);
 	
 
+CREATE table stat_achat(
+	id_objectif int,
+	prix double precision,
+	date_achat date,
+	FOREIGN key (id_objectif) REFERENCES objectif(id_objectif)
+);
+
 -- vues
 CREATE or replace view v_parametre_utilisateur as 
 	select utilisateur.id_utilisateur, 
@@ -307,6 +316,9 @@ CREATE or replace view v_entrainement as
 	natural join objectif
 	natural join genre
 	natural join type_entrainement;
+
+create or replace view v_transaction as 
+	select * from code_status natural join code natural join utilisateur;
 	
 
 

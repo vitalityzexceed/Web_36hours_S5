@@ -56,6 +56,42 @@ class Model_code_argent extends CI_Model
         }
     }
 
+    public function accept_transaction($id_code_satus) {
+        $code_demande = $this->model_generalise->find_by_request("SELECT * from v_transaction where id_code = $id_code_satus");
+        $sql = "UPDATE code_status set status = 20 where id_code = $id_code_satus";
+        $this->db->query($sql);
+        $id_user = $code_demande[0]["id_utilisateur"];
+        $id_code = $code_demande[0]["id_code"];
+        $montant_azo = $code_demande[0]["prix"];
+        $monant_teo = $this->model_generalise->find_by_request("SELECT * from compte_utilisateur where id_utilisateur = $id_user");
+        $monant_teo = $monant_teo[0]["montant_utilisateur"];
+        $montant_vaovao = $monant_teo + $montant_azo;
+        $sql1 = "UPDATE compte_utilisateur set montant_utilisateur = $montant_vaovao where id_utilisateur = $id_user";
+        $this->db->query($sql1);
+    }
+
+    public function deny_transaction($id_code_satus) {
+        $sql = "DELETE From code_status  where id_code = $id_code_satus";
+        $this->db->query($sql);
+    }
+
+    public function achat_regime($id_utilisateur, $montant, $id_objectif) {
+        $monant_actuel = $this->model_generalise->find_by_request("SELECT * from compte_utilisateur where id_utilisateur = $id_utilisateur")[0]["montant_utilisateur"];
+        if($monant_actuel < $montant) {
+            throw new Exception("Vous n'avez pas assez de credit pour payer");
+        }
+        else {
+            $reste = $monant_actuel - $montant;
+            $sql = "UPDATE compte_utilisateur set montant_utilisateur = $reste where id_utilisateur = $id_utilisateur";
+            $this->db->query($sql);
+            $sql1 = "INSERT INTO stat_achat values ( $id_objectif , $montant, now() )";
+            $this->db->query($sql1);
+        }
+        
+    }
+
+
+
 }
 
 ?>
