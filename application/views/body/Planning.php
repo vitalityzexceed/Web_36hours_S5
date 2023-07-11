@@ -111,8 +111,15 @@
           }
           ?>
         </div>
-        <center><p>Totale =&nbsp;&nbsp;112345678</p></center>
-        <center><p>Estimation  =&nbsp;&nbsp;112345678</p></center>
+        <center><p>Prix total <?=  number_format($prix_total, 0, '.', ' '); ?>Ar</p></center>
+        <center> <a href="<?= site_url("controlleur_client/payer") ?>"><button class="btn btn-primary" >Acheter Regime</button></a> </center>
+        <?php
+          if(isset($_GET["error"])){
+            ?>
+                <button class="btn btn-danger" ><?= $_GET["error"] ?></button>
+            <?php
+        }
+        ?>
 
     </div>
 </main>
