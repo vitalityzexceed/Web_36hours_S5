@@ -39,7 +39,7 @@ class Model_sport extends CI_Model
         $data = [
             'type_entrainement' => $type_entrainement,
         ];
-        $this->db->insert('Type_Entrainement', $data);
+        $this->db->insert('type_entrainement', $data);
     }
     
     public function insert_entrainement_activite($id_type_entrainement, $id_activite_sportif, $id_genre, $nb_repetitions, $nb_seances)
@@ -51,7 +51,7 @@ class Model_sport extends CI_Model
             'nb_repetition' => $nb_repetitions,
             'nb_seances' => $nb_seances
         ];
-        $this->db->insert('Entrainement_activite', $data);
+        $this->db->insert('entrainement_activite', $data);
     }
 
     public function update_entrainement_activite($id_type_entrainement_new, $id_activite_sportif_new, $id_genre_new, $nb_repetitions_new, $nb_seances_new, $id_type_entrainement_old, $id_activite_sportif_old, $id_genre_old, $nb_repetitions_old, $nb_seances_old)
@@ -69,7 +69,7 @@ class Model_sport extends CI_Model
         $this->db->where('$id_genre', $id_genre_old);
         $this->db->where('$nb_repetition', $nb_repetitions_old);
         $this->db->where('$nb_seances', $nb_seances_old);
-        $this->db->update('Entrainement_activite', $new_data);
+        $this->db->update('entrainement_activite', $new_data);
     }
 
     
