@@ -20,14 +20,28 @@
     </li>
     
     <li class="nav-item">
-      <a class="nav-link collapsed" href="<?php echo site_url('Controlleur_admin/vers_AddEntrainement'); ?>">
+      <a class="nav-link collapsed" href="<?php echo site_url('Controlleur_admin/vers_AddActivite'); ?>">
       <i class="bi bi-plus-circle"></i>
-  <span>Entrainement</span>
+  <span>Ajout Activite sportive</span>
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="<?php echo site_url('Controlleur_admin/vers_AddTypeEntrainement'); ?>">
+      <i class="bi bi-plus-circle"></i>
+  <span>Ajout type d'entraînement</span>
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="<?php echo site_url('Controlleur_admin/vers_AddEntrainementActivite'); ?>">
+      <i class="bi bi-plus-circle"></i>
+  <span>Ajout Entrainement-Activité</span>
       </a>
     </li>
     
     <li class="nav-item">
-      <a class="nav-link collapsed" href="<?php echo site_url('controlleur_user/index'); ?>">
+      <a class="nav-link collapsed" href="<?php echo site_url('controlleur_user/deconnexion'); ?>">
         <i class="bi bi-box-arrow-in-right"></i>
         <span>Logout</span>
       </a>

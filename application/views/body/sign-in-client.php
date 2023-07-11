@@ -10,10 +10,6 @@
   <meta content="" name="keywords">
 
   
-  <!-- Favicons -->
-  <link href=" <?= base_url('assets/img/logo.png') ?>" rel="icon">
-
-  <link href=" <?= base_url('assets/img/logo.png') ?>" rel="apple-touch-icon">
   <!-- Vendor CSS Files -->
   <link href="<?php echo base_url('assets/vendor/bootstrap/css/bootstrap.min.css'); ?>" rel="stylesheet">
   <link href="<?php echo base_url('assets/vendor/bootstrap-icons/bootstrap-icons.css'); ?>" rel="stylesheet">
@@ -49,7 +45,12 @@
                     <h5 class="card-title text-center pb-0 fs-4">Login</h5>
                     <p class="text-center small">Entrer votre nom utilisateur & mot de passe</p>
                   </div>
-
+                  <?php
+                    // if (isset($session)) 
+                    // {
+                    //   echo "".$session;
+                    // }
+                  ?>
                   <form action="<?php echo site_url('controlleur_user/traitement_connexion_client'); ?>" class="row g-3 needs-validation" novalidate method="post">
 
                     <div class="col-12">
@@ -62,7 +63,7 @@
 
                     <div class="col-12">
                       <label for="yourPassword" class="form-label">mot de passe</label>
-                      <input type="password" name="pswd" class="form-control" id="yourPassword" value="jean123" required>
+                      <input type="password" name="pswd" class="form-control" id="yourPassword" value="jean" required>
                       <div class="invalid-feedback">Veuillez entrer votre mot de passe!</div>
                     </div>
                     <div class="col-12">
@@ -70,7 +71,7 @@
                     </div>
               
                     <div class="col-12">
-                      <p class="small mb-0">Pas de Compte? <a href="<?php echo site_url('controlleur_user/vers_inscription_client'); ?>">Creer votre Compte</a></p>
+                      <p class="small mb-0">Pas de Compte? <a href="<?php echo site_url('Controlleur_user/vers_inscription_client'); ?>">Creer votre Compte</a></p>
                     </div>
                   </form>
 
