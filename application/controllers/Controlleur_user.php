@@ -152,8 +152,6 @@ class Controlleur_user extends CI_Controller {
     {
         $this->session->sess_destroy();
         session_destroy();
-        $this->cache->clean();
-
         ob_clean();
         redirect('controlleur_user/index');
     }
