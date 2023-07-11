@@ -15,11 +15,11 @@
 
                 <div class="col-12">
                   <label for="Nom" class="form-label">Nom de l'Element</label>
-                  <input type="text" class="form-control" id="Nom" name ="nom">
+                  <input type="text" class="form-control" id="Nom" name ="nom" value="element_test">
                 </div>
                 <div class="col-12">
                   <label for="Prix" class="form-label">Prix de l'Element </label>
-                  <input type="text" class="form-control" id="Prix" name="prix">
+                  <input type="text" class="form-control" id="Prix" name="prix" value="800">
                 </div>
                 <div class="text-center">
                   

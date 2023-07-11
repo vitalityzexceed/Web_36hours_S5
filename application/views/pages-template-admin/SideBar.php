@@ -6,42 +6,49 @@
 
 
     <li class="nav-item">
-      <a class="nav-link collapsed" href="<?php echo site_url('Controlleur_admin/vers_ListeRegime'); ?>">
+      <a class="nav-link collapsed" href="<?php echo site_url('controlleur_admin/vers_ListeRegime'); ?>">
       <i class="bi bi-list-ul"></i>
         <span>Liste regime</span>
       </a>
     </li>
 
     <li class="nav-item">
-      <a class="nav-link collapsed" href="<?php echo site_url('Controlleur_admin/vers_ListeElement'); ?>">
+      <a class="nav-link collapsed" href="<?php echo site_url('controlleur_admin/vers_ListeElement'); ?>">
         <i class="bi bi-list-ol"></i>
        <span>Liste Element</span>
       </a>
     </li>
     
     <li class="nav-item">
-      <a class="nav-link collapsed" href="<?php echo site_url('Controlleur_admin/vers_AddActivite'); ?>">
+      <a class="nav-link collapsed" href="<?php echo site_url('controlleur_admin/vers_AddActivite'); ?>">
       <i class="bi bi-plus-circle"></i>
   <span>Ajout Activite sportive</span>
       </a>
     </li>
 
     <li class="nav-item">
-      <a class="nav-link collapsed" href="<?php echo site_url('Controlleur_admin/vers_AddTypeEntrainement'); ?>">
+      <a class="nav-link collapsed" href="<?php echo site_url('controlleur_admin/vers_AddTypeEntrainement'); ?>">
       <i class="bi bi-plus-circle"></i>
   <span>Ajout type d'entraînement</span>
       </a>
     </li>
 
     <li class="nav-item">
-      <a class="nav-link collapsed" href="<?php echo site_url('Controlleur_admin/vers_AddEntrainementActivite'); ?>">
+      <a class="nav-link collapsed" href="<?php echo site_url('controlleur_admin/vers_AddEntrainementActivite'); ?>">
       <i class="bi bi-plus-circle"></i>
   <span>Ajout Entrainement-Activité</span>
       </a>
     </li>
 
     <li class="nav-item">
-      <a class="nav-link collapsed" href="<?php echo site_url('Controlleur_admin/transaction'); ?>">
+      <a class="nav-link collapsed" href="<?php echo site_url('controlleur_parametrer/vers_page_entrainement'); ?>">
+      <i class="bi bi-list-ul"></i>
+  <span>Page parametre entrainement</span>
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="<?php echo site_url('controlleur_admin/transaction'); ?>">
       <i class="bi bi-plus-circle"></i>
       <span>Transaction</span>
       </a>

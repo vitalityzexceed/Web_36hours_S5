@@ -54,14 +54,14 @@
                     <div class="col-12">
                       <label for="yourUsername" class="form-label">Nom utilisateur</label>
                       <div class="input-group has-validation">
-                       <input type="text" name="nom" class="form-control" id="yourUsername" value="boss" required>
+                       <input type="text" name="nom" class="form-control" id="yourUsername" value="admin" required>
                         <div class="invalid-feedback">veuillez entrer votre Nom utilisateur.</div>
                       </div>
                     </div>
 
                     <div class="col-12">
                       <label for="yourPassword" class="form-label">Mot de Passe</label>
-                      <input type="password" name="pswd" class="form-control" id="yourPassword" value="boss123" required>
+                      <input type="password" name="pswd" class="form-control" id="yourPassword" value="admin" required>
                       <div class="invalid-feedback">Veuillez entrer votre mot de passe</div>
                     </div>
 

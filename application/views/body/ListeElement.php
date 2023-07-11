@@ -1,7 +1,7 @@
 <main id="main" class="main">
   
 <div class="col-md-12"> 
-    <a href="<?php echo site_url('Controlleur_admin/vers_AddElement'); ?>">
+    <a href="<?php echo site_url('controlleur_admin/vers_AddElement'); ?>">
         <div class="col-sm-6">
             <div class="textdiv" style="background-color: #c7dbff00;">
                 <p id="added">  <i class="bi bi-plus-circle"></i>
@@ -13,12 +13,12 @@
 <!-- Résultat Planning -->
 <div class="card">
   <div class="card-body">
-    <h5 class="card-title">Résultat Planning</h5>
+    <h5 class="card-title">Liste Element</h5>
     <!-- Tableau avec bordure -->
     <table class="table table-bordered  table-striped">
       <thead>
         <tr>
-           <th scope="col" id="header-cell">element 1</th>
+           <th scope="col" id="header-cell">Nom</th>
            <th scope="col" id="header-cell">Prix</th>
         </tr>
         </thead>

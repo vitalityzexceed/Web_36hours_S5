@@ -7,7 +7,7 @@
             <div class="card-body">
               <h5 class="card-title">Entraînement & Activité</h5>
               <!-- Vertical Form -->
-                <form action="<?php echo site_url('Controlleur_sport/traitement_insertion_entrainement_activite'); ?>" class="row g-3 needs-validation" novalidate method="post">
+                <form action="<?php echo site_url('controlleur_sport/traitement_insertion_entrainement_activite'); ?>" class="row g-3 needs-validation" novalidate method="post">
                     <div class="col-12">
                         <label for="idtype" class="form-label">Type d'entrainement</label>
                         <select name="id_type_entrainement">

@@ -53,13 +53,17 @@
                   <form action="<?php echo site_url('controlleur_user/traitement_inscription_client'); ?>" class="row g-3 needs-validation" novalidate method="post">
                     <div class="col-12">
                       <label for="yourName" class="form-label">Votre Nom Utilisateur</label>
-                      <input type="text" name="nom" class="form-control" id="yourName" value="wenzel" required>
+                      <input type="text" name="nom" class="form-control" id="yourName" value="test" required>
                       <div class="invalid-feedback">veuillez entrer Votre Nom Utilisateur!</div>
                     </div>
-
+                    <div class="col-12">
+                      <label for="password" class="form-label">Votre Mot de Passe</label>
+                      <input type="text" name="mdp" class="form-control" id="mdp" value="test" required>
+                      <div class="invalid-feedback">veuillez entrer Votre Mot de Passe!</div>
+                    </div>
                     <div class="col-12">
                       <label for="yourEmail" class="form-label">Votre Email</label>
-                      <input type="email" name="mail" class="form-control" id="yourEmail" value="wenzel@gmail.com" required>
+                      <input type="email" name="mail" class="form-control" id="yourEmail" value="test@gmail.com" required>
                       <div class="invalid-feedback">Veuillez entrer  Votre Email!</div>
                     </div>
 
@@ -72,14 +76,13 @@
                     <div class="col-12">
                       <label for="yourGender" class="form-label">Genre</label>
                       <select class="form-select" id="yourGender" name="genre">
-                        <option selected disabled>Sexe</option>
-                        <option value="option1">Homme</option>
-                        <option value="option2">Femme</option>
+                        <option value="1">Homme</option>
+                        <option value="2">Femme</option>
                       </select>
                     </div>
 
                     <div class="col-12">
-                      <label for="yourHeight" class="form-label">Longueur</label>
+                      <label for="yourHeight" class="form-label">Longueur en cm</label>
                       <input type="number" name="taille" class="form-control" id="yourHeight" value="170" required>
                       <div class="invalid-feedback">Veuillez  entrer Votre  Taille!</div>
                     </div>

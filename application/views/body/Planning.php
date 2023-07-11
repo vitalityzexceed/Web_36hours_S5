@@ -34,10 +34,16 @@
           <button class="btn btn-primary" type="submit">Proposer</button>
         </div>
       </form>
+      <br>
       </div>
-      
+      <a href="<?= site_url('controlleur_client/vers_Planning_IMC') ?>"><button class="btn btn-primary" style="margin-left: 20px;">Atteindre son IMC</button></a>
         <div class="card-body">
             <h5 class="card-title">Résultat Planning  <a href="<?= site_url("controlleur_client/PDF_entrainement") ?>"><button class="btn btn-primary" style="margin-left: 30px;" >Voir Pdf</button></a></h5>
+            <?php
+              if(isset($_SESSION["message_IMC"])){
+                  echo $_SESSION["message_IMC"];
+              }
+            ?>
             
             <!-- Tableau avec bordure -->
             
@@ -102,17 +108,58 @@
                 
         </div>
         <div>
+          <style>
+            .pagination {
+              display: flex;
+              justify-content: center;
+              list-style-type: none;
+              padding: 0;
+            }
+
+            .pagination li {
+              margin: 0 5px;
+            }
+
+            .pagination a {
+              color: #333;
+              text-decoration: none;
+              padding: 5px 10px;
+              border: 1px solid #ccc;
+              border-radius: 3px;
+            }
+
+            .pagination a:hover {
+              background-color: #f5f5f5;
+            }
+
+            .pagination .active {
+              background-color: #333;
+              color: #fff;
+            }
+          </style>
+        <nav>
+          <ul class = "pagination">
           <?php
           for ($i=0; $i <$nb_pages ; $i++) { 
             $url = $i+1;
             ?>
-              <a href="<?php echo site_url('controlleur_client/vers_Planning/'.$url); ?>"><?php echo $i+1; ?></a>
+              <li class="page-item"><a href="<?php echo site_url('controlleur_client/vers_Planning/'.$url); ?>"><?php echo $i+1; ?></a></li>
             <?php
           }
           ?>
+          </ul>
+        </nav> 
         </div>
-        <center><p>Totale =&nbsp;&nbsp;112345678</p></center>
-        <center><p>Estimation  =&nbsp;&nbsp;112345678</p></center>
+        </div>
+        <center><p>Prix total <?=  number_format($prix_total, 0, '.', ' '); ?>Ar</p></center>
+        <center> <a href="<?= site_url("controlleur_client/payer") ?>"><button class="btn btn-primary" >Acheter Regime</button></a> </center>
+        <?php
+          if(isset($_GET["error"])){
+            ?>
+                <button class="btn btn-danger" ><?= $_GET["error"] ?></button>
+            <?php
+        }
+        ?>
 
     </div>
 </main>

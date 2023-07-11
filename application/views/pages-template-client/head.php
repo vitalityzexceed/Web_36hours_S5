@@ -25,7 +25,7 @@
   <!-- Header -->
   <header id="header" class="header fixed-top d-flex align-items-center">
     <div class="d-flex align-items-center justify-content-between">
-      <a href="<?= site_url('home') ?>" class="logo d-flex align-items-center">
+      <a href="#" class="logo d-flex align-items-center">
         <img src="<?= base_url('assets/img/logo.png') ?>" alt="">
         <span class="d-none d-lg-block">KOTRANA</span>
       </a>
@@ -49,7 +49,7 @@
 
 
         <li class="nav-item dropdown pe-3">
-          <a class="nav-link nav-profile d-flex align-items-center pe-0 show" href="<?php echo site_url('Controlleur_client/vers_PorteFeuille'); ?>" aria-expanded="true">
+          <a class="nav-link nav-profile d-flex align-items-center pe-0 show" href="<?php echo site_url('controlleur_client/vers_PorteFeuille'); ?>" aria-expanded="true">
             <img src="<?= base_url('assets/img/portefeuille.jpg') ?>" alt="Profile" class="rounded-circle">
             <span class="d-none d-md-block ">Voir Portefeuille</span>
           </a>

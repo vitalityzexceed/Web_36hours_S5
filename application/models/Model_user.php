@@ -14,8 +14,10 @@ class Model_user extends CI_Model
         $val = 'not_found';
         $request = "SELECT * from utilisateur where (nom = %s or mail = %s) and motdepasse = (select sha1(%s))";
         $request = sprintf($request,$this->db->escape($nom), $this->db->escape($nom), $this->db->escape($mdp));
+        // echo $request;  
         $query = $this->db->query($request);
         $row = $query->row_array();
+        // echo isset($row)."hahahaha";
         if(isset($row)) {
             $val = $row['id_utilisateur'];
         }
@@ -25,7 +27,7 @@ class Model_user extends CI_Model
     public function insert_user($nom, $mail, $mdp, $dateNaissance) {
         $request = "INSERT INTO utilisateur VALUES (NULL, %s, %s, (select sha1(%s)), 0, %s,now())";
         $request = sprintf($request, $this->db->escape($nom), $this->db->escape($mail), $this->db->escape($mdp), $this->db->escape($dateNaissance));
-        // echo $request."<br>";
+//  echo $request."<br>";
         $this->db->query($request);
     }
 
@@ -41,21 +43,21 @@ class Model_user extends CI_Model
 
         $sql = "INSERT INTO  parametre_utilisateur values (%s, %s, %s, %s)";
         $sql = sprintf($sql, $id_utilisateur, $id_genre, $taille, $poids);
-        // echo $sql."<br>";
+        //  echo $sql."<br>";
         $this->db->query($sql);
     }
 
     public function insert_compte_utilisateur($id_utilisateur, $compte){
         $sql = "INSERT INTO  compte_utilisateur values (%s, %s)";
         $sql = sprintf($sql, $id_utilisateur, $compte);
-        // echo $sql."<br>";
+        //  echo $sql."<br>";
         $this->db->query($sql);
     }
 
     public function inscription($nom, $mail, $mdp, $dateNaissance, $id_genre, $taille, $poids) {
         $this->insert_user($nom, $mail, $mdp, $dateNaissance);
         $req_1 = "SELECT * from utilisateur where nom = '$nom' and mail = '$mail' and motdepasse = (select sha1('$mdp'))";
-        // echo $req_1."<br>";
+        //  echo $req_1."<br>";
         $query_1 = $this->db->query($req_1);
         $row_1 = $query_1->row_array();
         $id_utilisateur = $row_1['id_utilisateur'];
@@ -82,6 +84,28 @@ class Model_user extends CI_Model
             "user" => $user
         );
         return $val;
+    }
+
+    public function getIMC($id_utilisateur) {
+        $user = $this->model_generalise->find_by_request("SELECT * from v_parametre_utilisateur where id_utilisateur = $id_utilisateur")[0];
+        return $user["poids"]/(  ($user["poids"]*0.01)*($user["poids"]*0.01)  );
+    }
+
+    public function getObjectif($id_utilisateur) {
+        $imc = $this->getIMC($id_utilisateur);
+        echo $imc;
+        if($imc < 18.5) {
+            return array(1, 10, "Insuffisance pondérale");
+        }
+        if($imc >= 18.5 && 24.9 > $imc ) {
+            return array(1, 2, "poids normal");
+        }
+        if( 25 <= $imc && 29.9 <= $imc ) {
+            return array(2, 10, "surpoids");
+        }
+        else {
+            return array(2, 10, "obésité");
+        }
     }
 
     public function getEntrainement_jour($id_utilisateur, $id_objectif, $poid_entre) {
