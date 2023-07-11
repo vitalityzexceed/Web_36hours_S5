@@ -27,7 +27,8 @@ public function vers_Planning($num_page = 1)
             if (isset($id_objectif) && isset($poids)) {
                 // echo  "huhuhuh";
                 $all_entrainement = $this->model_user->getEntrainement_jour(4, $id_objectif, $poids);
-                $this->session->set_userdata('all_entrainement', $all_entrainement);
+                // $this->session->set_userdata('all_entrainement', $all_entrainement);
+                $_SESSION["all_entrainement"] = $all_entrainement;
                 $entrainement_jour = $all_entrainement["all_proposition"];
                 // $this->session->set_userdata('entrainement_jour', $entrainement_jour);
                 $_SESSION["entrainement_jour"] = $entrainement_jour;
@@ -41,12 +42,60 @@ public function vers_Planning($num_page = 1)
             }
             else{
                 $dataliste['entrainement_jour'] =  $entrainement_jour;
+                $nb_pages = $this->model_user->getNb_page($entrainement_jour, 5);
             }
             // $dataliste['entrainement_jour'] = $pagine;
             
             $dataliste['nb_pages'] = $nb_pages;
             
             $this->load->view('pages-template-client', $dataliste);
+        }
+        
+    }
+
+
+    public function listeCode()
+    {
+        $this->load->model('model_generalise');
+        $iduseractuel = $this->session->idutilisateur;
+        if (!isset($iduseractuel)) 
+        {
+            redirect('Controlleur_client/index');
+        }
+        else
+        {
+            $dataliste['pages'] = "List-code";
+            $dataliste['title'] = "List-code";
+            $dataliste['all_code'] = $this->model_generalise->find_all("code");
+        
+            
+            $this->load->view('pages-template-client', $dataliste);
+        }
+        
+    }
+
+    public function demandeCode()
+    {
+        $this->load->model('model_code_argent');
+        $iduseractuel = $this->session->idutilisateur;
+        if (!isset($iduseractuel)) 
+        {
+            redirect('Controlleur_client/index');
+        }
+        else
+        {
+            try {
+                $code = $this->input->post("code");
+                $this->model_code_argent->demander_code($code, $iduseractuel);
+                redirect(site_url("controlleur_client/listeCode?succes"));
+            } catch (Exception $e) {
+                $error = $e->getMessage();
+                redirect(site_url("controlleur_client/listeCode?error=$error"));
+            }
+            
+        
+            
+            // $this->load->view('pages-template-client', $dataliste);
         }
         
     }
@@ -66,7 +115,28 @@ public function vers_Planning($num_page = 1)
             $this->load->view('pages-template-client', $dataliste);
                 }
                 
-        }     
+        } 
+        
+        function PDF_entrainement() {
+            $this->load->model('model_user');
+            $this->load->library('pdf');
+            // Créer une nouvelle instance de la classe Pdf
+            if(isset($_SESSION["entrainement_jour"]) && $_SESSION["all_entrainement"]) {
+                $pdf = new PDF();
+                $pdf->title = "Entrainement";
+                $all_entrainement= $_SESSION["all_entrainement"];
+                $results = $all_entrainement["all_proposition"];
+                $prix_total = $all_entrainement["prix_total"];
+                $pdf->AddPage();
+                $pdf->CreatePDFTableEntrainement([28, 33, 30, 30, 32, 32], ["Activite", "Repetitions", "Seances"], $all_entrainement, [4, 5], [$prix_total]);
+                $pdf->Output();
+            }  
+            else {
+                redirect(site_url("controlleur_client/vers_Planning"));
+            } 
+
+            
+        }
 
 }
     ?>

@@ -22,16 +22,17 @@ class Model_code_argent extends CI_Model
         // return $this->db->affected_rows();
     }
 
-    public function demander_code($idcode, $iduser)
+    public function demander_code__($idcode, $iduser)
     {
         // $request = "Insert into code_status values (%s, %s, %s)";
         // $request = sprintf($request, $idcode, $iduser, 1);
-        $query = $this->db->select('*')->from('code_status')->where('id_code', $idcode)->get();
-        $test_raha_efa = $query->result();
+        // $query = $this->db->select('*')->from('code_status')->where('id_code', $idcode)->get();
+        // $test_raha_efa = $query->result();
 
-        if ($test_raha_efa[0]->status == 20) 
-        {
-            return "Code efa niasa";
+        $test_raha_efa = $this->model_generalise->find_by_request("SELECT * from code_status where id_code = $idcode");
+
+        if(count($test_raha_efa) > 0) {
+            throw new Exception ("Code deja utilise");
         }
 
         $data = [
@@ -41,6 +42,18 @@ class Model_code_argent extends CI_Model
         ];
         $this->db->insert('code_status', $data);
     
+    }
+
+    public function demander_code($code, $iduser)
+    {
+        $code_demande = $this->model_generalise->find_by_request("SELECT * from code where code = '$code'");
+        if(count($code_demande) > 0) {
+            $id_code =$code_demande[0]["id_code"];
+            $this->demander_code__($id_code, $iduser);
+        }
+        else {
+            throw new Exception("Invalide code");
+        }
     }
 
 }

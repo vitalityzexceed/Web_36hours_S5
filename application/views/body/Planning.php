@@ -29,7 +29,7 @@
             </div>
           </div>
 
-
+        <br>
         <div class="col-12">
           <button class="btn btn-primary" type="submit">Proposer</button>
         </div>
@@ -37,7 +37,8 @@
       </div>
       
         <div class="card-body">
-            <h5 class="card-title">Résultat Planning</h5>
+            <h5 class="card-title">Résultat Planning  <a href="<?= site_url("controlleur_client/PDF_entrainement") ?>"><button class="btn btn-primary" style="margin-left: 30px;" >Voir Pdf</button></a></h5>
+            
             <!-- Tableau avec bordure -->
             
                 

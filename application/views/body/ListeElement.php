@@ -19,18 +19,22 @@
       <thead>
         <tr>
            <th scope="col" id="header-cell">element 1</th>
-           <th scope="col" id="header-cell">element 2</th>
-           <th scope="col" id="header-cell">element 3</th>
+           <th scope="col" id="header-cell">Prix</th>
         </tr>
         </thead>
       <tbody>
-        <tr>
-           <td>ElementA </td>
-          <td>ElementB</td>
-          <td><div class="btn btn-info"><i class="bi bi-pencil-fill"></i></div>&nbsp;&nbsp;&nbsp;<div class="btn btn-danger"><i class="bi bi-trash-fill"></i></div>
-            </td>    
-          </tr>
-</div>
+        <?php
+        foreach($listeelements as $element) {
+          ?>
+              <tr>
+                <td><?= $element["nom_element"] ?></td>
+                <td class="text-end"><?=  number_format($element["prix_element"], 0, '.', ' '); ?></td>
+    
+              </tr>
+          <?php
+        }
+        ?>
+          <tr></tr>
         </tbody>
     </table>
   </div>
