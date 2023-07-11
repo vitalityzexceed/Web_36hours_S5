@@ -17,7 +17,6 @@
                   <input type="text" class="form-control" name="nom_activite" id="nom_activite" placeholder="Nom activité">
                 </div>
                 <div class="text-center">
-                  <button type="reset" class="btn btn-secondary">annuler</button>
                   <button type="submit" class="btn btn-primary">valider</button>
                 </div>
               </form><!-- Vertical Form -->
