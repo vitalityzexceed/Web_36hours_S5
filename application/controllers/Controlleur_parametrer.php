@@ -61,7 +61,7 @@ class Controlleur_parametrer extends CI_Controller {
       
       $this->load->view('pages-template-admin', $datalistes);
 
-      redirect('Controlleur_parametrer/vers_page_entrainement');
+      redirect('controlleur_parametrer/vers_page_entrainement');
     }
 
 

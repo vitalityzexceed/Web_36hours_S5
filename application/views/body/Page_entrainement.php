@@ -1,7 +1,7 @@
 <main id="main" class="main">
   
 <div class="col-md-12"> 
-      <a  href="<?php echo site_url('Controlleur_parametrer/vers_parametre_entrainement'); ?>">
+      <a  href="<?php echo site_url('controlleur_parametrer/vers_parametre_entrainement'); ?>">
        <div class="col-sm-6">
             <div class="textdiv" style="background-color: #c7dbff00;">
                 <p id="added">  <i class="bi bi-plus-circle"></i>

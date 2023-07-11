@@ -71,7 +71,7 @@
                     </div>
               
                     <div class="col-12">
-                      <p class="small mb-0">Pas de Compte? <a href="<?php echo site_url('Controlleur_user/vers_inscription_client'); ?>">Creer votre Compte</a></p>
+                      <p class="small mb-0">Pas de Compte? <a href="<?php echo site_url('controlleur_user/vers_inscription_client'); ?>">Creer votre Compte</a></p>
                     </div>
                   </form>
 

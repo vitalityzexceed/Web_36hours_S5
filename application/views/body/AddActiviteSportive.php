@@ -11,7 +11,7 @@
               <h5 class="card-title">Activite Sportive</h5>
 
               <!-- Vertical Form -->
-              <form action="<?php echo site_url('Controlleur_sport/traitement_ajout_activite'); ?>" class="row g-3 needs-validation" novalidate method="post">
+              <form action="<?php echo site_url('controlleur_sport/traitement_ajout_activite'); ?>" class="row g-3 needs-validation" novalidate method="post">
                 <div class="col-12">
                   <div></div>
                   <input type="text" class="form-control" name="nom_activite" id="nom_activite" placeholder="Nom activité" required>

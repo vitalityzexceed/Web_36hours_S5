@@ -7,7 +7,7 @@ class Controlleur_admin extends CI_Controller {
     public function vers_ListeElement()
     {
         $this->load->model('model_generalise');
-        $dataliste['listeelements'] = $this->model_generalise->find_all("Element");
+        $dataliste['listeelements'] = $this->model_generalise->find_all("element");
         $dataliste['title'] = "Liste des elements";
         $dataliste['pages'] = "ListeElement";
 
@@ -21,7 +21,7 @@ class Controlleur_admin extends CI_Controller {
         $iduseractuel = $this->session->idutilisateur;
         if (!isset($iduseractuel)) 
         {
-            redirect('Controlleur_user/index');
+            redirect('controlleur_user/index');
         }
         else
         {
@@ -45,11 +45,11 @@ class Controlleur_admin extends CI_Controller {
         $iduseractuel = $this->session->idutilisateur;
         if (!isset($iduseractuel)) 
         {
-            redirect('Controlleur_user/index');
+            redirect('controlleur_user/index');
         }
         else
         {
-            $dataliste['listeelements'] = $this->model_generalise->find_all("Element");
+            $dataliste['listeelements'] = $this->model_generalise->find_all("element");
             // $dataliste['listeelements'] = $this->model_element->find_all("Element");
             $dataliste['title'] = "Ajout nouveau regime";
             $dataliste['pages'] = "AddRegime";
@@ -64,7 +64,7 @@ class Controlleur_admin extends CI_Controller {
         $iduseractuel = $this->session->idutilisateur;
         if (!isset($iduseractuel)) 
         {
-            redirect('Controlleur_user/index');
+            redirect('controlleur_user/index');
         }
         else
         {
@@ -81,7 +81,7 @@ class Controlleur_admin extends CI_Controller {
         $iduseractuel = $this->session->idutilisateur;
         if (!isset($iduseractuel)) 
         {
-            redirect('Controlleur_user/index');
+            redirect('controlleur_user/index');
         }
         else
         {
@@ -97,7 +97,7 @@ class Controlleur_admin extends CI_Controller {
         $iduseractuel = $this->session->idutilisateur;
         if (!isset($iduseractuel)) 
         {
-            redirect('Controlleur_user/index');
+            redirect('controlleur_user/index');
         }
         else
         {
@@ -114,13 +114,13 @@ class Controlleur_admin extends CI_Controller {
         $iduseractuel = $this->session->idutilisateur;
         if (!isset($iduseractuel)) 
         {
-            redirect('Controlleur_user/index');
+            redirect('controlleur_user/index');
         }
         else
         {
             $dataliste['pages'] = "AddEntrainementActivite";
             $dataliste['title'] = "Ajout entrainement activite";
-            $dataliste['typesentrainement'] = $this->model_generalise->find_all("Type_Entrainement");
+            $dataliste['typesentrainement'] = $this->model_generalise->find_all("type_entrainement");
             $dataliste['activitessportif'] = $this->model_generalise->find_all("activite_sportif");
             $dataliste['genres'] = $this->model_generalise->find_all("genre");
             $this->load->view('pages-template-admin', $dataliste);
@@ -133,7 +133,7 @@ class Controlleur_admin extends CI_Controller {
         $iduseractuel = $this->session->idutilisateur;
         if (!isset($iduseractuel)) 
         {
-            redirect('Controlleur_user/index');
+            redirect('controlleur_user/index');
         }
         else
         {
@@ -150,7 +150,7 @@ class Controlleur_admin extends CI_Controller {
         $iduseractuel = $this->session->idutilisateur;
         if (!isset($iduseractuel)) 
         {
-            redirect('Controlleur_user/index');
+            redirect('controlleur_user/index');
         }
         else
         {
@@ -168,7 +168,7 @@ class Controlleur_admin extends CI_Controller {
         $iduseractuel = $this->session->idutilisateur;
         if (!isset($iduseractuel)) 
         {
-            redirect('Controlleur_user/index');
+            redirect('controlleur_user/index');
         }
         else
         {
@@ -184,7 +184,7 @@ class Controlleur_admin extends CI_Controller {
         $iduseractuel = $this->session->idutilisateur;
         if (!isset($iduseractuel)) 
         {
-            redirect('Controlleur_user/index');
+            redirect('controlleur_user/index');
         }
         else
         {

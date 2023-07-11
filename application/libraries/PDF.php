@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 header('Content-Type: text/html; charset=utf-8');
 require_once "fpdf/fpdf.php";
 
-class PDF extends FPDF {
+class Pdf extends FPDF {
     public $title;
     // Colored table
     // Colored table

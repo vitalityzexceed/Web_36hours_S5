@@ -11,7 +11,7 @@
               <h5 class="card-title">REGIME</h5>
 
               <!-- Vertical Form -->
-              <form action="<?php echo site_url('Controlleur_regime/traitement_modif_regime'); ?>" class="row g-3 needs-validation" novalidate method="post">
+              <form action="<?php echo site_url('controlleur_regime/traitement_modif_regime'); ?>" class="row g-3 needs-validation" novalidate method="post">
                 <div class="col-12">
                   <label for="inputNanme4" class="form-label">Nom Regime</label>
                   <input type="text" class="form-control" id="Nom" name="nom" placeholder="<?= $regime->nom_regime ?>" value="<?= $regime->nom_regime ?>">

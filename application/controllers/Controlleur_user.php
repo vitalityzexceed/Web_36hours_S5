@@ -162,7 +162,7 @@ class Controlleur_user extends CI_Controller {
         $iduseractuel = $this->session->idutilisateur;
 		if (!isset($iduseractuel)) 
         {
-            redirect('Controlleur_client/index');
+            redirect('controlleur_client/index');
         }
 		else
 		{

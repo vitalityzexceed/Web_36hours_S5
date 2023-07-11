@@ -10,7 +10,7 @@
             <h5 class="card-title">Entrainement Parametrer</h5>
 
             <!-- Vertical Form -->
-            <form action="<?php echo site_url('Controlleur_parametrer/traitement_ajout_parametrer'); ?>" class="row g-3 needs-validation" novalidate method="post">
+            <form action="<?php echo site_url('controlleur_parametrer/traitement_ajout_parametrer'); ?>" class="row g-3 needs-validation" novalidate method="post">
               <div class="col-12">
                 <label for="inputPoids1" class="form-label">Poids 1</label>
                 <input type="text" class="form-control" id="Poids1" name="poids1">

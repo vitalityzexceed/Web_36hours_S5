@@ -6,7 +6,7 @@
 
     <li class="nav-item">
       
-      <a class="nav-link collapsed" href="<?= site_url("Controlleur_client/vers_Planning");?>">
+      <a class="nav-link collapsed" href="<?= site_url("controlleur_client/vers_Planning");?>">
       <i class="bi bi-grid"></i>
          <span>Planning</span>
       </a>

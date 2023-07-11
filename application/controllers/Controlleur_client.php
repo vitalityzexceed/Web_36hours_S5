@@ -5,7 +5,7 @@ class Controlleur_client extends CI_Controller {
 
 public function index()
 {
-    redirect('Controlleur_user/vers_login_client');
+    redirect('controlleur_user/vers_login_client');
 
 }
 
@@ -16,7 +16,7 @@ public function vers_Planning($num_page = 1)
         $iduseractuel = $this->session->idutilisateur;
         if (!isset($iduseractuel)) 
         {
-            redirect('Controlleur_client/index');
+            redirect('controlleur_client/index');
         }
         else
         {
@@ -76,7 +76,7 @@ public function vers_Planning($num_page = 1)
         $iduseractuel = $this->session->idutilisateur;
         if (!isset($iduseractuel)) 
         {
-            redirect('Controlleur_client/index');
+            redirect('controlleur_client/index');
         }
         else
         {
@@ -141,7 +141,7 @@ public function vers_Planning($num_page = 1)
         $iduseractuel = $this->session->idutilisateur;
         if (!isset($iduseractuel)) 
         {
-            redirect('Controlleur_client/index');
+            redirect('controlleur_client/index');
         }
         else
         {
@@ -161,7 +161,7 @@ public function vers_Planning($num_page = 1)
         $iduseractuel = $this->session->idutilisateur;
         if (!isset($iduseractuel)) 
         {
-            redirect('Controlleur_client/index');
+            redirect('controlleur_client/index');
         }
         else
         {
@@ -187,7 +187,7 @@ public function vers_Planning($num_page = 1)
         $iduseractuel = $this->session->idutilisateur;
         if (!isset($iduseractuel)) 
         {
-            redirect('Controlleur_client/index');
+            redirect('controlleur_client/index');
         }
         else
         {
@@ -222,7 +222,7 @@ public function vers_Planning($num_page = 1)
             $iduseractuel = $this->session->idutilisateur;
             if (!isset($iduseractuel)) 
             {
-                redirect('Controlleur_admin/index');
+                redirect('controlleur_admin/index');
             }   
             else
             {
@@ -237,10 +237,10 @@ public function vers_Planning($num_page = 1)
         
         function PDF_entrainement() {
             $this->load->model('model_user');
-            $this->load->library('pdf');
+            $this->load->library('Pdf');
             // Créer une nouvelle instance de la classe Pdf
             if(isset($_SESSION["entrainement_jour"]) && $_SESSION["all_entrainement"]) {
-                $pdf = new PDF();
+                $pdf = new Pdf();
                 $pdf->title = "Entrainement";
                 $all_entrainement= $_SESSION["all_entrainement"];
                 $results = $all_entrainement["all_proposition"];
