@@ -3,13 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Takalo</title>
-    
-  <!-- Favicons -->
-  <link href=" <?= base_url('assets/img/logo.png') ?>" rel="icon">
-
-<link href=" <?= base_url('assets/img/logo.png') ?>" rel="apple-touch-icon">
-
+    <title>Kotrana</title>
     <link rel="shortcut icon" href="<?php echo site_url('assets/Takalo-logo/vector/default.svg'); ?>" type="image/x-icon">
     <link rel="stylesheet" href="<?php echo site_url('assets/bootstrap/css/bootstrap.min.css'); ?>">
     <link rel="stylesheet" href="<?php echo site_url('assets/css/font.css'); ?> ">

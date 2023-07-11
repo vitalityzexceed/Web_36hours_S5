@@ -20,7 +20,7 @@
                                 </option>
                             <?php
                                 }
-                            ?>  
+                            ?>
                         </select>
                     </div>
                     <div class="col-12">
@@ -54,14 +54,15 @@
                     </div>
                     <div class="col-12">
                         <label for="type" class="form-label">Nb répétitions</label>
-                        <input type="number" min="0" max="100" class="form-control" id="nb_repetition" name="nb_repetition">
+                        <input type="number" min="0" max="100" class="form-control" id="nb_repetitions" name="nb_repetitions">
                     </div>
                     <div class="col-12">
                         <label for="type" class="form-label">Nb séances</label>
                         <input type="number" min="0" max="100" class="form-control" id="nb_seances" name="nb_seances">
                     </div>
-                            <div class="text-center">
-                          <button type="submit" class="btn btn-primary">valider</button>
+                    <div class="text-center">
+                        <button type="reset" class="btn btn-secondary">annuler</button>
+                        <button type="submit" class="btn btn-primary">valider</button>
                     </div>
                 </form><!-- Vertical Form -->
             </div>

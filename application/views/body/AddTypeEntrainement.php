@@ -11,9 +11,10 @@
                 <form action="<?php echo site_url('Controlleur_sport/traitement_ajout_type_entrainement'); ?>" class="row g-3 needs-validation" novalidate method="post">
                     <div class="col-12">
                         <label for="type" class="form-label">Type d'entrainement</label>
-                        <input type="text" class="form-control" id="type" name="nom">
+                        <input type="text" class="form-control" id="type" name="type" required>
                     </div>
                     <div class="text-center">
+                    <button type="reset" class="btn btn-secondary">annuler</button>
                     
                     <button type="submit" class="btn btn-primary">valider</button>
                     </div>

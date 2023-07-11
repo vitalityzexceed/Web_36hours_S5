@@ -13,7 +13,7 @@
 <!-- Résultat Planning -->
 <div class="card">
   <div class="card-body">
-    <h5 class="card-title">Résultat Planning</h5>
+    <h5 class="card-title">Liste parametrage</h5>
     <!-- Tableau avec bordure -->
     <table class="table table-bordered  table-striped">
       <thead>

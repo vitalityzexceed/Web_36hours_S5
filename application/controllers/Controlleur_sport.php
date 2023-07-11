@@ -56,15 +56,19 @@
         public function traitement_ajout_activite()
         {
             $this->load->model('model_sport');
-            $nom = $this->post('nom_activite');
+            $nom = $this->input->post('nom_activite');
             $this->model_sport->insert_new_activite($nom);
+            redirect('controlleur_user/vers_accueil_admin');
+
         }
 
         public function traitement_ajout_type_entrainement()
         {
             $this->load->model('model_sport');
-            $nom = $this->post('nom_activite');
-            $this->model_sport->insert_new_activite($nom);
+            $nom = $this->input->post('type');
+            $this->model_sport->insert_Type_Entrainement($nom);
+            redirect('controlleur_user/vers_accueil_admin');
+
         }
             
         public function traitement_insertion_entrainement_activite()
@@ -78,12 +82,13 @@
 
             $this->model_sport->insert_entrainement_activite($id_type_entrainement, $id_activite_sportif, $id_genre, $nb_repetitions, $nb_seances);
 
-            $dataliste['title'] = "Liste des objets du client";
+            $dataliste['title'] = "Accueil admin";
             // $dataliste['title'] = $iduseractuel;
 
-            $dataliste['pages'] = "accueil-client";
+            $dataliste['pages'] = "accueil-admin";
 
-            $this->load->view('pages-template-client', $dataliste);
+            redirect('controlleur_user/vers_accueil_admin');
+
         }
 
         public function traitement_update_entrainement_activite()
@@ -101,7 +106,7 @@
             $id_genre_old = $this->input->post('id_genre_old');
             $nb_repetitions_old = $this->input->post('nb_repetitions_old');
             $nb_seances_old = $this->input->post('nb_seances_old');
-
+            
             $this->model_sport->update_entrainement_activite($id_type_entrainement_new, $id_activite_sportif_new, $id_genre_new, $nb_repetitions_new, $nb_seances_new, $id_type_entrainement_old, $id_activite_sportif_old, $id_genre_old, $nb_repetitions_old, $nb_seances_old);
         }
     }

@@ -107,8 +107,9 @@ class Controlleur_user extends CI_Controller {
             // $dataliste['title'] = $iduseractuel;
             // $dataliste['session'] = $this->session->userdata('idutilisateur');
             $dataliste['pages'] = "accueil-client";
+			redirect('controlleur_client/vers_portefeuille');
 
-            $this->load->view('pages-template-client', $dataliste);
+            // $this->load->view('pages-template-client', $dataliste);
 		}
 		// elseif ((!isset($nom))||(!isset($mail))||(!isset($mdp))) 
 		// {
@@ -131,24 +132,47 @@ class Controlleur_user extends CI_Controller {
         
 		if (($nom != null) && ($mdp != null))
 		{
-			if(($this->model_user->verify_Login($nom, $mdp))!='not found')
+			if(($this->model_user->verify_Login($nom, $mdp))!="not_found")
 			{   
                 $this->session->set_userdata('idutilisateur', ''.$this->model_user->verify_Login($nom, $mdp));
-                $dataliste['pages'] = "accueil-admin";
-                $dataliste['usergainstat'] = $this->model_dashboard->getWeightGainUserStatistics(date('Y'));
-                $dataliste['userlossstat'] = $this->model_dashboard->getWeightLossUserStatistics(date('Y'));
-                $dataliste['userIMCstat'] = $this->model_dashboard->getIMCUserStatistics(date('Y'));
-
-		        $this->load->view('pages-template-admin', $dataliste);
+                // $dataliste['pages'] = "accueil-admin";
+                // $dataliste['usergainstat'] = $this->model_dashboard->getWeightGainUserStatistics(date('Y'));
+                // $dataliste['userlossstat'] = $this->model_dashboard->getWeightLossUserStatistics(date('Y'));
+                // $dataliste['userIMCstat'] = $this->model_dashboard->getIMCUserStatistics(date('Y'));
+				// $dataliste['anneeactuelle'] = date('Y');
+		        // $this->load->view('pages-template-admin', $dataliste);
+				redirect('controlleur_user/vers_accueil_admin');
 			}
 			else
 			{
-				echo "Erreur";
+				redirect('controlleur_user/vers_login_admin');
 			}
 		}
 		elseif ((!isset($nom))||(!isset($mdp))) 
 		{
 			echo "Misy valeur null";
+		}
+	}
+
+	public function vers_accueil_admin()
+	{
+		$this->load->model('model_user');
+		$this->load->model('model_dashboard');
+		
+        $iduseractuel = $this->session->idutilisateur;
+		if (!isset($iduseractuel)) 
+        {
+            redirect('Controlleur_client/index');
+        }
+		else
+		{
+			// $this->session->set_userdata('idutilisateur', ''.$this->model_user->verify_Login($nom, $mdp));
+			$dataliste['pages'] = "accueil-admin";
+			$dataliste['usergainstat'] = $this->model_dashboard->getWeightGainUserStatistics(date('Y'));
+			$dataliste['userlossstat'] = $this->model_dashboard->getWeightLossUserStatistics(date('Y'));
+			$dataliste['userIMCstat'] = $this->model_dashboard->getIMCUserStatistics(date('Y'));
+			$dataliste['anneeactuelle'] = date('Y');
+			$this->load->view('pages-template-admin', $dataliste);
 		}
 	}
 

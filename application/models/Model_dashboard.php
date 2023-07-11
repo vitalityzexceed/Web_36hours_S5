@@ -24,7 +24,7 @@ class Model_dashboard extends CI_Model
     {
         $this->db->select('MONTH(date_achat) AS month, COUNT(*) AS count');
         $this->db->from('stat_achat');
-        $this->db->where('id_objectif', 0);
+        $this->db->where('id_objectif', 2);
         $this->db->where('YEAR(date_achat)', $year);
         $this->db->group_by('MONTH(date_achat)');
         $query = $this->db->get();
@@ -35,7 +35,7 @@ class Model_dashboard extends CI_Model
     {
         $this->db->select('MONTH(date_achat) AS month, COUNT(*) AS count');
         $this->db->from('stat_achat');
-        $this->db->where('id_objectif', 1);
+        $this->db->where('id_objectif', 0);
         $this->db->where('YEAR(date_achat)', $year);
         $this->db->group_by('MONTH(date_achat)');
         $query = $this->db->get();

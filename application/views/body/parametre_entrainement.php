@@ -12,10 +12,6 @@
             <!-- Vertical Form -->
             <form action="<?php echo site_url('Controlleur_parametrer/traitement_ajout_parametrer'); ?>" class="row g-3 needs-validation" novalidate method="post">
               <div class="col-12">
-                <label for="inputNanme4" class="form-label">Nom Regime</label>
-                <input type="text" class="form-control" id="Nom" name="nom">
-              </div>
-              <div class="col-12">
                 <label for="inputPoids1" class="form-label">Poids 1</label>
                 <input type="text" class="form-control" id="Poids1" name="poids1">
               </div>
@@ -31,8 +27,11 @@
                 <label for="inputTaille2" class="form-label">Taille 2</label>
                 <input type="text" class="form-control" id="Taille2" name="taille2">
               </div>
+
             <div class="col-12">
-                    <select name="id_objectif">
+            <label class="">Objectif</label>
+              
+                    <select  class="form-select" name="id_objectif">
                         <?php
                             foreach ($objectifs as $objectif) 
                         { 
@@ -44,9 +43,11 @@
                             }
                         ?>
                     </select>
+                
                 </div>
             <div class="col-12">
-                    <select name="id_genre">
+            <label class=""> Genre:</label>
+                    <select class = "form-select" name="id_genre">
                         <?php
                             foreach ($genre as $genres) 
                         { 
@@ -60,7 +61,8 @@
                     </select>
                 </div>
                 <div class="col-12">
-                    <select name="id_type_entrainement">
+                <label class=""> Type Entrainement : </label> 
+                    <select class = "form-select" name="id_type_entrainement">
                         <?php
                             foreach ($type_entrainement as $type_entrainements) 
                         { 
@@ -75,7 +77,8 @@
                 </div>
                 
                 <div class="col-12">
-                    <select name="id_regime">
+                <label class=""> Nom regime :  </label>   
+                    <select class = "form-select" name="id_regime">
                         <?php
                             foreach ($regime as $regimes) 
                         { 

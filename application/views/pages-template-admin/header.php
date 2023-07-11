@@ -9,9 +9,7 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href=" <?= base_url('assets/img/logo.png') ?>" rel="icon">
-
-<link href=" <?= base_url('assets/img/logo.png') ?>" rel="apple-touch-icon">
+  <link href="assets/img/favicon.png" rel="icon">
 
   <!-- Vendor CSS Files -->
   <link href="<?= base_url('assets/vendor/bootstrap/css/bootstrap.min.css') ?>" rel="stylesheet">
@@ -19,14 +17,16 @@
   <link href="<?= base_url('assets/vendor/boxicons/css/boxicons.min.css') ?>" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="<?= base_url('assets/css/style.css') ?>" rel="stylesheet">
+<link href="<?= base_url('assets/css/style.css') ?>" rel="stylesheet">
+  
+
 </head>
 
 <body>
   <!-- Header -->
   <header id="header" class="header fixed-top d-flex align-items-center">
     <div class="d-flex align-items-center justify-content-between">
-      <a href="#" class="logo d-flex align-items-center">
+      <a href="<?= site_url('controlleur_user/vers_accueil_admin') ?>" class="logo d-flex align-items-center">
         <img src="<?= base_url('assets/img/logo.png') ?>" alt="">
         <span class="d-none d-lg-block">KOTRANA</span>
       </a>

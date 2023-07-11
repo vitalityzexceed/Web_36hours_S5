@@ -22,7 +22,6 @@ class Page_controller extends CI_Controller {
 	function __construct(){
         parent::__construct();
         $this->load->helper('url'); 
-		$this->load->library('pdf');
         
     }
 
@@ -37,15 +36,20 @@ class Page_controller extends CI_Controller {
 		$taille = 10;
 		$poids = 10;
 		try {
+			// $this->model_user->inscription($nom, $mail, $mdp, $dateNaissance, $id_genre, $taille, $poids);
 		} catch (Exception $e) {
 			echo "Error: " . $e->getMessage();
 		}
 		
+
+		// $propos_entrainement = $this->model_user->getNb_jour_entrainement(4, 1, 10);
+		// echo $propos_entrainement["nb_jour"]." ".$propos_entrainement["estimation"]." ".$propos_entrainement["user"]["nom"];
+
 		$all_entrainement= $this->model_user->getEntrainement_jour(4, 1, 10);
 		$entrainement_jour = $all_entrainement["all_proposition"];
-
+		// echo(count($entrainement_jour));
 		foreach($entrainement_jour as $ent) {
-			echo $ent["jour"]."Jour";
+			echo $ent["jour"]."Jour </br></br>";
 			foreach($ent["entrainement"] as $ee) {
 				echo $ee["nom_activite"]." nb reps ".$ee["nb_repetition"]." x ".$ee["nb_seances"]."</br></br>";
 			}
@@ -55,25 +59,7 @@ class Page_controller extends CI_Controller {
 		}
 		$prix_total = $all_entrainement["prix_total"];
 		echo $prix_total; 
-
 		
-
-
-		
-    }
-
-	function PDF_entrainement() {
-		$this->load->model('model_user');
-       
-        // Créer une nouvelle instance de la classe Pdf
-        $pdf = new PDF();
-        $pdf->title = "Entrainement";
-        $all_entrainement= $this->model_user->getEntrainement_jour(4, 1, 10);
-		$results = $all_entrainement["all_proposition"];
-		$prix_total = $all_entrainement["prix_total"];
-        $pdf->AddPage();
-        $pdf->CreatePDFTableEntrainement([28, 33, 30, 30, 32, 32], ["Activite", "Repetitions", "Seances"], $all_entrainement, [4, 5], [$prix_total]);
-        $pdf->Output();
     }
 	
 

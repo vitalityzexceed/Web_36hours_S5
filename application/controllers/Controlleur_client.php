@@ -3,6 +3,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Controlleur_client extends CI_Controller {
 
+public function index()
+{
+    redirect('Controlleur_user/vers_login_client');
+
+}
+
 public function vers_Planning($num_page = 1)
     {
         $this->load->model('model_user');
@@ -24,6 +30,11 @@ public function vers_Planning($num_page = 1)
             $all_entrainement = array();
             $entrainement_jour = array();
             $prix = 0;
+
+            if(isset($_SESSION['message_IMC']))
+            {
+                unset($_SESSION['message_IMC']);
+            }
 
             if (isset($id_objectif) && isset($poids)) {
                 // echo  "huhuhuh";

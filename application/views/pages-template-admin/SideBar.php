@@ -41,6 +41,13 @@
     </li>
 
     <li class="nav-item">
+      <a class="nav-link collapsed" href="<?php echo site_url('Controlleur_parametrer/vers_page_entrainement'); ?>">
+      <i class="bi bi-list-ul"></i>
+  <span>Page parametre entrainement</span>
+      </a>
+    </li>
+
+    <li class="nav-item">
       <a class="nav-link collapsed" href="<?php echo site_url('Controlleur_admin/transaction'); ?>">
       <i class="bi bi-plus-circle"></i>
       <span>Transaction</span>

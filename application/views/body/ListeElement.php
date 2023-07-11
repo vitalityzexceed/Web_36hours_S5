@@ -13,12 +13,12 @@
 <!-- Résultat Planning -->
 <div class="card">
   <div class="card-body">
-    <h5 class="card-title">Résultat Planning</h5>
+    <h5 class="card-title">Liste Element</h5>
     <!-- Tableau avec bordure -->
     <table class="table table-bordered  table-striped">
       <thead>
         <tr>
-           <th scope="col" id="header-cell">element 1</th>
+           <th scope="col" id="header-cell">Nom</th>
            <th scope="col" id="header-cell">Prix</th>
         </tr>
         </thead>
