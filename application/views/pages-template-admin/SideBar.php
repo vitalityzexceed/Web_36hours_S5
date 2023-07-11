@@ -39,6 +39,13 @@
   <span>Ajout Entrainement-Activité</span>
       </a>
     </li>
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="<?php echo site_url('Controlleur_admin/transaction'); ?>">
+      <i class="bi bi-plus-circle"></i>
+      <span>Transaction</span>
+      </a>
+    </li>
     
     <li class="nav-item">
       <a class="nav-link collapsed" href="<?php echo site_url('controlleur_user/deconnexion'); ?>">
