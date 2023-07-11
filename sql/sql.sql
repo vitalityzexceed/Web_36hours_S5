@@ -275,7 +275,7 @@ insert into parametre_entrainement (id_parametre_entrainement, poids1, poids2, t
 -- vues
 CREATE or replace view v_parametre_utilisateur as 
 	select utilisateur.id_utilisateur, 
-		utilisateur.nom, genre.genre, 
+		utilisateur.nom,genre.id_genre ,genre.genre, 
 		parametre_utilisateur.poids, 
 		parametre_utilisateur.taille
 	from utilisateur natural join genre natural join parametre_utilisateur;

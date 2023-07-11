@@ -24,6 +24,10 @@ class Controlleur_user extends CI_Controller {
         $this->load->helper('url'); 
         
     }
+
+    public function test() {
+        echo "Test";
+    }
 	
 	public function index()
 	{
