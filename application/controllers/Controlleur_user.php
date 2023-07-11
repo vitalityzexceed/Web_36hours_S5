@@ -62,36 +62,31 @@ class Controlleur_user extends CI_Controller {
 		$this->load->view('form-template', $data);
     }
 
-	public function traitement_inscription_client()
+    public function traitement_inscription_client()
 	{
-		$this->load->model('model_user');
-	
+        $this->load->model('model_user');
+
 		$nom = $this->input->post('nom');
 		$mail = $this->input->post('mail');
-		$mdp = $this->input->post('mdp');
-		$dateNaissance = $this->input->post('dtn');
-		$id_genre = $this->input->post('genre');
-		$taille = $this->input->post('taille');
-		$poids = $this->input->post('poids');
-		echo "idgenre: ".$id_genre;
-		
-		if (!empty($nom) && !empty($mail) && !empty($mdp)) {
-		
-			// Formater la date de naissance en SQL Date (MySQL)
-			$dateNaissance_sql = date('Y-m-d', strtotime($dateNaissance));
-	
-			// Insérer les données dans la base de données
-			$this->model_user->inscription($nom, $mail, $mdp, $dateNaissance_sql, $id_genre, $taille, $poids);
-	
-			$datalien['title'] = "Login client";
-			$datalien['pages'] = "sign-in-client";
-	
-			$this->load->view('form-template', $datalien);
-		} else {
-			echo "Certaines valeurs sont manquantes.".$mdp.$nom.$mail.$dateNaissance.$id_genre.$taille.$poids;
+		$mdp = $this->input->post('pswd');
+
+		if (($nom != null) && ($mail != null) && ($mdp != null))
+		{
+			$this->model_user->inscription($nom, $mail, $mdp);
+			 
+                //$dataliste['listeobjets'] = $this->model_user->getlistemesobjet();
+                $datalien['title'] = "Login client";
+                $datalien['pages'] = "sign-in-client";
+
+		        $this->load->view('form-template', $datalien);
+			
 		}
-	}
-	
+		elseif ((!isset($nom))||(!isset($mail))||(!isset($mdp))) 
+		{
+			echo "Misy valeur null";
+		}
+    }
+
     public function traitement_connexion_client()
 	{	
 		$this->load->model('model_user');
