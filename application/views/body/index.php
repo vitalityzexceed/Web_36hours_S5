@@ -8,10 +8,10 @@
   <link href=" <?= base_url('assets/img/logo.png') ?>" rel="icon">
 
   <link href=" <?= base_url('assets/img/logo.png') ?>" rel="apple-touch-icon">
-     <link rel="stylesheet" href="<?php echo site_url('assets/bootstrap/css/bootstrap.min.css'); ?>">
-    <link rel="stylesheet" href="<?php echo site_url('assets/css/font.css'); ?> ">
-    <link rel="stylesheet" href="<?php echo site_url('assets/css/color.css'); ?> ">
-    <link rel="stylesheet" href="<?php echo site_url('assets/css/form.css'); ?> ">
+     <link rel="stylesheet" href="<?php echo base_url('assets/bootstrap/css/bootstrap.min.css'); ?>">
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/font.css'); ?> ">
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/color.css'); ?> ">
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/form.css'); ?> ">
 </head>
 <body>
     <section class="position-relative py-4 py-xl-5">
@@ -26,7 +26,7 @@
                 <div class="col-md-12 col-xl-6">
                     <div class="card mb-5 flex-row">
                         <div>
-                            <img src="<?php echo site_url('assets/kotrana-logo/default.png'); ?>" width="95%" alt="Picture not found">
+                            <img src="<?php echo base_url('assets/kotrana-logo/default.png'); ?>" width="95%" alt="Picture not found">
                         </div>
                         <div style="min-width: 18rem;" class="card-body d-flex flex-column align-items-center">
                             <div class="bs-icon-xl bs-icon-sm bs-icon-circle bs-icon-primary bs-icon my-4">
