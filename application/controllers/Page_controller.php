@@ -37,20 +37,15 @@ class Page_controller extends CI_Controller {
 		$taille = 10;
 		$poids = 10;
 		try {
-			// $this->model_user->inscription($nom, $mail, $mdp, $dateNaissance, $id_genre, $taille, $poids);
 		} catch (Exception $e) {
 			echo "Error: " . $e->getMessage();
 		}
 		
-
-		// $propos_entrainement = $this->model_user->getNb_jour_entrainement(4, 1, 10);
-		// echo $propos_entrainement["nb_jour"]." ".$propos_entrainement["estimation"]." ".$propos_entrainement["user"]["nom"];
-
 		$all_entrainement= $this->model_user->getEntrainement_jour(4, 1, 10);
 		$entrainement_jour = $all_entrainement["all_proposition"];
-		// echo(count($entrainement_jour));
+
 		foreach($entrainement_jour as $ent) {
-			echo $ent["jour"]."Jour </br></br>";
+			echo $ent["jour"]."Jour";
 			foreach($ent["entrainement"] as $ee) {
 				echo $ee["nom_activite"]." nb reps ".$ee["nb_repetition"]." x ".$ee["nb_seances"]."</br></br>";
 			}
@@ -61,13 +56,7 @@ class Page_controller extends CI_Controller {
 		$prix_total = $all_entrainement["prix_total"];
 		echo $prix_total; 
 
-		// je voudrais avoir une affichage comme suit
-		// jour 1
-		// regime  | activite | repetitions | seances
-		// ...
-		// jour 2
-		// regime  | activite | repetitions | seances
-		// ...
+		
 
 
 		

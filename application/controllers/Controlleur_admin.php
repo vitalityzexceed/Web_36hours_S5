@@ -127,6 +127,23 @@ class Controlleur_admin extends CI_Controller {
         }   
     }
 
+    public function ajout_element()
+    {
+        $this->load->model('model_element');
+        $iduseractuel = $this->session->idutilisateur;
+        if (!isset($iduseractuel)) 
+        {
+            redirect('Controlleur_user/index');
+        }
+        else
+        {
+            $nom = $this->input->post("nom");
+            $prix = $this->input->post("prix");
+            $this->model_element->insert_new_element($nom, $prix);
+            redirect(site_url("controlleur_admin/vers_Listeelement"));
+        }   
+    }
+
 }
 
 
