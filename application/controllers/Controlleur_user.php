@@ -123,7 +123,7 @@ class Controlleur_user extends CI_Controller {
     public function traitement_connexion_admin()
 	{	
 		$this->load->model('model_user');
-		// $this->load->model('model_dashboard');
+		$this->load->model('model_dashboard');
 
 
 		$nom = $this->input->post('nom');
@@ -131,20 +131,19 @@ class Controlleur_user extends CI_Controller {
         
 		if (($nom != null) && ($mdp != null))
 		{
-			// echo $this->model_user->verify_Login($nom, $mdp);
-            if(($this->model_user->verify_Login($nom, $mdp))=='not_found')
+			if(($this->model_user->verify_Login($nom, $mdp))!='not found')
 			{   
-                redirect('controlleur_user/vers_login_admin');
+                $this->session->set_userdata('idutilisateur', ''.$this->model_user->verify_Login($nom, $mdp));
+                $dataliste['pages'] = "accueil-admin";
+                $dataliste['usergainstat'] = $this->model_dashboard->getWeightGainUserStatistics(date('Y'));
+                $dataliste['userlossstat'] = $this->model_dashboard->getWeightLossUserStatistics(date('Y'));
+                $dataliste['userIMCstat'] = $this->model_dashboard->getIMCUserStatistics(date('Y'));
+
+		        $this->load->view('pages-template-admin', $dataliste);
 			}
 			else
 			{
-                $this->session->set_userdata('idutilisateur', ''.$this->model_user->verify_Login($nom, $mdp));
-                $dataliste['pages'] = "accueil-admin";
-                // $dataliste['usergainstat'] = $this->model_dashboard->getWeightGainUserStatistics(date('Y'));
-                // $dataliste['userlossstat'] = $this->model_dashboard->getWeightLossUserStatistics(date('Y'));
-                // $dataliste['userIMCstat'] = $this->model_dashboard->getIMCUserStatistics(date('Y'));
-
-		        $this->load->view('pages-template-admin', $dataliste);
+				echo "Erreur";
 			}
 		}
 		elseif ((!isset($nom))||(!isset($mdp))) 

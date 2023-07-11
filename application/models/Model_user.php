@@ -27,7 +27,7 @@ class Model_user extends CI_Model
     public function insert_user($nom, $mail, $mdp, $dateNaissance) {
         $request = "INSERT INTO utilisateur VALUES (NULL, %s, %s, (select sha1(%s)), 0, %s,now())";
         $request = sprintf($request, $this->db->escape($nom), $this->db->escape($mail), $this->db->escape($mdp), $this->db->escape($dateNaissance));
-        // echo $request."<br>";
+ echo $request."<br>";
         $this->db->query($request);
     }
 
@@ -43,21 +43,21 @@ class Model_user extends CI_Model
 
         $sql = "INSERT INTO  parametre_utilisateur values (%s, %s, %s, %s)";
         $sql = sprintf($sql, $id_utilisateur, $id_genre, $taille, $poids);
-        // echo $sql."<br>";
+         echo $sql."<br>";
         $this->db->query($sql);
     }
 
     public function insert_compte_utilisateur($id_utilisateur, $compte){
         $sql = "INSERT INTO  compte_utilisateur values (%s, %s)";
         $sql = sprintf($sql, $id_utilisateur, $compte);
-        // echo $sql."<br>";
+         echo $sql."<br>";
         $this->db->query($sql);
     }
 
     public function inscription($nom, $mail, $mdp, $dateNaissance, $id_genre, $taille, $poids) {
         $this->insert_user($nom, $mail, $mdp, $dateNaissance);
         $req_1 = "SELECT * from utilisateur where nom = '$nom' and mail = '$mail' and motdepasse = (select sha1('$mdp'))";
-        // echo $req_1."<br>";
+         echo $req_1."<br>";
         $query_1 = $this->db->query($req_1);
         $row_1 = $query_1->row_array();
         $id_utilisateur = $row_1['id_utilisateur'];
