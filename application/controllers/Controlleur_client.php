@@ -23,6 +23,7 @@ public function vers_Planning($num_page = 1)
 
             $all_entrainement = array();
             $entrainement_jour = array();
+            $prix = 0;
 
             if (isset($id_objectif) && isset($poids)) {
                 // echo  "huhuhuh";
@@ -32,13 +33,15 @@ public function vers_Planning($num_page = 1)
                 $entrainement_jour = $all_entrainement["all_proposition"];
                 // $this->session->set_userdata('entrainement_jour', $entrainement_jour);
                 $_SESSION["entrainement_jour"] = $entrainement_jour;
+                $_SESSION["id_objectif"] = $id_objectif;
     
                 // print_r( $_SESSION["entrainement_jour"]);
             }
-            if(isset($_SESSION["entrainement_jour"])) {
+            if(isset($_SESSION["entrainement_jour"]) && $_SESSION["all_entrainement"]) {
                 $nb_pages = $this->model_user->getNb_page($_SESSION["entrainement_jour"], 5);
                 $pagine = $this->model_user->getEntrainement_jour_pagine( $_SESSION["entrainement_jour"], $num_page);
                 $dataliste['entrainement_jour'] = $pagine;
+                $prix = $_SESSION["all_entrainement"]["prix_total"];
             }
             else{
                 $dataliste['entrainement_jour'] =  $entrainement_jour;
@@ -47,6 +50,7 @@ public function vers_Planning($num_page = 1)
             // $dataliste['entrainement_jour'] = $pagine;
             
             $dataliste['nb_pages'] = $nb_pages;
+            $dataliste["prix_total"] = $prix;
             
             $this->load->view('pages-template-client', $dataliste);
         }
@@ -99,21 +103,58 @@ public function vers_Planning($num_page = 1)
         }
         
     }
-         
-    public function vers_PorteFeuille()
+
+    public function payer()
     {
-        $this->load->model('model_user');
+        $this->load->model('model_code_argent');
         $iduseractuel = $this->session->idutilisateur;
         if (!isset($iduseractuel)) 
         {
-            redirect('Controlleur_admin/index');
-        }   
+            redirect('Controlleur_client/index');
+        }
         else
         {
-        $dataliste['pages'] = "PorteFeuille";
-            $dataliste['title'] = "PorteFeuille";
-            $this->load->view('pages-template-client', $dataliste);
+
+            if(isset($_SESSION["entrainement_jour"]) && $_SESSION["all_entrainement"] && $_SESSION["id_objectif"]){
+                $montant = $_SESSION["all_entrainement"]["prix_total"];
+
+                try {
+                    $this->model_code_argent->achat_regime($iduseractuel, $montant, $_SESSION["id_objectif"]);
+                    redirect(site_url("controlleur_client/vers_portefeuille"));
+                } catch (Exception $e) {
+                    $error = $e->getMessage();
+                    redirect(site_url("controlleur_client/vers_Planning?error=$error"));
                 }
+                
+            }
+            else {
+                redirect(site_url("controlleur_client/vers_Planning"));
+            }
+            
+            
+        
+            
+            // $this->load->view('pages-template-client', $dataliste);
+        }
+        
+    }
+         
+    public function vers_PorteFeuille()
+    {
+            $this->load->model('model_generalise');
+            $iduseractuel = $this->session->idutilisateur;
+            if (!isset($iduseractuel)) 
+            {
+                redirect('Controlleur_admin/index');
+            }   
+            else
+            {
+                $dataliste['pages'] = "PorteFeuille";
+                $dataliste['title'] = "PorteFeuille";
+                $compte = $this->model_generalise->find_by_request("SELECT * from compte_utilisateur where id_utilisateur = $iduseractuel");
+                $dataliste["compte"] = $compte[0];
+                $this->load->view('pages-template-client', $dataliste);
+            }
                 
         } 
         

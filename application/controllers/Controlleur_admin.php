@@ -144,6 +144,60 @@ class Controlleur_admin extends CI_Controller {
         }   
     }
 
+    public function transaction()
+    {
+        $this->load->model('model_generalise');
+        $iduseractuel = $this->session->idutilisateur;
+        if (!isset($iduseractuel)) 
+        {
+            redirect('Controlleur_user/index');
+        }
+        else
+        {
+            $dataliste['pages'] = "transaction";
+            $dataliste['title'] = "transaction";
+            $code = $this->model_generalise->find_by_request("select * from v_transaction where status < 20");
+            $dataliste['transaction'] = $code;
+            $this->load->view('pages-template-admin', $dataliste);
+        }   
+    }
+
+    public function accept_transaction()
+    {
+        $this->load->model('model_code_argent');
+        $iduseractuel = $this->session->idutilisateur;
+        if (!isset($iduseractuel)) 
+        {
+            redirect('Controlleur_user/index');
+        }
+        else
+        {
+            $id_code_status = $this->input->get("id_code_status");
+            $this->model_code_argent->accept_transaction($id_code_status);
+            redirect(site_url("controlleur_admin/transaction"));
+        }   
+    }
+
+    public function deny_transaction()
+    {
+        $this->load->model('model_code_argent');
+        $iduseractuel = $this->session->idutilisateur;
+        if (!isset($iduseractuel)) 
+        {
+            redirect('Controlleur_user/index');
+        }
+        else
+        {
+            $id_code_status = $this->input->get("id_code_status");
+            $this->model_code_argent->deny_transaction($id_code_status);
+            redirect(site_url("controlleur_admin/transaction"));
+        }   
+    }
+
+
+
+
+
 }
 
 
