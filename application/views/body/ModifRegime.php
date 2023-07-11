@@ -11,23 +11,28 @@
               <h5 class="card-title">REGIME</h5>
 
               <!-- Vertical Form -->
-              <form action="<?php echo site_url('Controlleur_regime/traitement_ajout_regime'); ?>" class="row g-3 needs-validation" novalidate method="post">
+              <form action="<?php echo site_url('Controlleur_regime/traitement_modif_regime'); ?>" class="row g-3 needs-validation" novalidate method="post">
                 <div class="col-12">
                   <label for="inputNanme4" class="form-label">Nom Regime</label>
-                  <input type="text" class="form-control" id="Nom" name="nom">
+                  <input type="text" class="form-control" id="Nom" name="nom" placeholder="<?= $regime->nom_regime ?>" value="<?= $regime->nom_regime ?>">
+                  <input type="hidden" class="form-control" id="id_regime" name="id_regime" value="<?= $regime->id_regime ?>"
                 </div>
                 <div></div>
                 <fieldset class="row mb-3">
-                  <legend class="col-form-label pt-0">Elements à inclure : </legend>
+                  <legend class="col-form-label pt-0">Elements à exclure : </legend>
+
                   <div class="col-sm-10">
                     <?php
-                      foreach ($listeelements as $element) 
+                        if (isset($erreur)) {
+                            echo "Erreur : " . $erreur;
+                        }
+                      foreach ($elements as $element) 
                       { 
                     ?>
                       <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="elementstoinclude[]" id="gridRadios1" value="<?= $element['id_element'] ?>">
+                        <input class="form-check-input" type="checkbox" name="elementstoexclude[]" id="gridRadios1" value="<?= $element->id_element ?>">
                         <label class="form-check-label" for="gridRadios1">
-                          <?= $element['nom_element'] ?>
+                          <?= $element->nom_element ?>
                         </label>
                       </div>
                     <?php

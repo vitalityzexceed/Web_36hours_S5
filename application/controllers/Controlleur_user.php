@@ -29,6 +29,7 @@ class Controlleur_user extends CI_Controller {
 	{
         $data['title'] = "Index";
         $data['pages'] = "index";
+
 		$this->load->view('form-template', $data);
 	}
 
@@ -43,6 +44,8 @@ class Controlleur_user extends CI_Controller {
 	{
         $data['pages'] = "sign-in-client";
         $data['title'] = "Login client";
+        $data['session'] = $this->session->userdata('idutilisateur');
+
 		$this->load->view('form-template', $data);
     }
 
@@ -88,20 +91,27 @@ class Controlleur_user extends CI_Controller {
 
 		if (($nom != null) && ($mdp != null))
 		{
+            if (($this->model_user->verify_Login($nom, $mdp)=="not_found")) 
+            {
+                redirect('controlleur_user/vers_login_client');
+            }
             $this->session->set_userdata('idutilisateur', ''.$this->model_user->verify_Login($nom, $mdp));
         
             $dataliste['title'] = "Liste des objets du client";
             // $dataliste['title'] = $iduseractuel;
-
+            // $dataliste['session'] = $this->session->userdata('idutilisateur');
             $dataliste['pages'] = "accueil-client";
 
             $this->load->view('pages-template-client', $dataliste);
 		}
-		elseif ((!isset($nom))||(!isset($mail))||(!isset($mdp))) 
+		// elseif ((!isset($nom))||(!isset($mail))||(!isset($mdp))) 
+		// {
+		// 	echo "Misy valeur null";
+		// }
+		elseif ((!isset($nom))||(!isset($mdp))) 
 		{
 			echo "Misy valeur null";
 		}
-			
 	}
 
     public function traitement_connexion_admin()
@@ -538,7 +548,11 @@ class Controlleur_user extends CI_Controller {
 
     public function deconnexion()
     {
-        $this->session>session_destroy();
+        $this->session->sess_destroy();
+        session_destroy();
+        $this->cache->clean();
+
+        ob_clean();
         redirect('controlleur_user/index');
     }
 
