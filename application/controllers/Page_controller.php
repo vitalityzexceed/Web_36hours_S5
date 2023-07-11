@@ -56,13 +56,7 @@ class Page_controller extends CI_Controller {
 		$prix_total = $all_entrainement["prix_total"];
 		echo $prix_total; 
 
-		// je voudrais avoir une affichage comme suit
-		// jour 1
-		// regime  | activite | repetitions | seances
-		// ...
-		// jour 2
-		// regime  | activite | repetitions | seances
-		// ...
+		
 
 
 		

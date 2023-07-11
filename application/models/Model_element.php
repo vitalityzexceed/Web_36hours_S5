@@ -23,8 +23,8 @@ class Model_element extends CI_Model
     public function update_element($idelement, $nom, $prix)
     {
         $new_data = [
-            'nom' => $nom,
-            'prix' => $prix,
+            'nom_element' => $nom,
+            'prix_element' => $prix,
         ];
 
         $this->db->where('$id_element', $idelement);
@@ -34,8 +34,8 @@ class Model_element extends CI_Model
     public function insert_new_element($nom, $prix)
     {
         $data = [
-            'nom' => $nom,
-            'prix' => $prix,
+            'nom_element' => $nom,
+            'prix_element' => $prix,
         ];
         $this->db->insert('element', $data);
     }

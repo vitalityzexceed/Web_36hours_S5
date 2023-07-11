@@ -11,6 +11,11 @@
          <span>Planning</span>
       </a>
     </li>
+    <li>
+      <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="<?php echo site_url('controlleur_client/listeCode'); ?>">
+          <i class="bi bi-menu-button-wide"></i><span>Inserer Code</span></i>
+        </a>
+    </li>
     <li class="nav-item">
       <a class="nav-link collapsed" href="<?php echo site_url('controlleur_user/index'); ?>">
         <i class="bi bi-box-arrow-in-right"></i>
